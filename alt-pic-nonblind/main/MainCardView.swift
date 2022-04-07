@@ -58,7 +58,9 @@ struct CardImage: View {
 
 struct MainCardView_Previews: PreviewProvider {
     static var previews: some View {
-        MainCardView()
+        NavigationView {
+            MainCardView()
+        }
     }
 }
 
