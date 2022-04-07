@@ -35,7 +35,7 @@ private extension MainView {
             }
     }
     var profileImage: some View {
-        NavigationLink(destination: ProfileView()){
+        NavigationLink(destination: UserProfileView()){
             Image(systemName: "person.crop.circle")
                 .padding()
                 .imageScale(.large)
