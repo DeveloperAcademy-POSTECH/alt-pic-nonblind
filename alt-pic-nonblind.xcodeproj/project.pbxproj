@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21E4D01927FEAB5E00378FBD /* ProfileViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E4D01827FEAB5E00378FBD /* ProfileViewTest.swift */; };
 		E27628AD27FC6CD100773D39 /* alt_pic_nonblindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27628AC27FC6CD100773D39 /* alt_pic_nonblindApp.swift */; };
 		E27628AF27FC6CD100773D39 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27628AE27FC6CD100773D39 /* ContentView.swift */; };
 		E27628B127FC6CD200773D39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E27628B027FC6CD200773D39 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21E4D01827FEAB5E00378FBD /* ProfileViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTest.swift; sourceTree = "<group>"; };
 		E27628A927FC6CD100773D39 /* alt-pic-nonblind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "alt-pic-nonblind.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27628AC27FC6CD100773D39 /* alt_pic_nonblindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alt_pic_nonblindApp.swift; sourceTree = "<group>"; };
 		E27628AE27FC6CD100773D39 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21E4D01327FEAB1B00378FBD /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				21E4D01827FEAB5E00378FBD /* ProfileViewTest.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		E27628A027FC6CD100773D39 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +75,7 @@
 		E27628AB27FC6CD100773D39 /* alt-pic-nonblind */ = {
 			isa = PBXGroup;
 			children = (
+				21E4D01327FEAB1B00378FBD /* Profile */,
 				E28B4CCA27FE83300026A544 /* TempView.swift */,
 				E28B4CCE27FE84E70026A544 /* main */,
 				E27628AC27FC6CD100773D39 /* alt_pic_nonblindApp.swift */,
@@ -169,6 +180,7 @@
 				E28B4CCB27FE83320026A544 /* TempView.swift in Sources */,
 				E28B4CC927FE35460026A544 /* MyWebView.swift in Sources */,
 				E27628AD27FC6CD100773D39 /* alt_pic_nonblindApp.swift in Sources */,
+				21E4D01927FEAB5E00378FBD /* ProfileViewTest.swift in Sources */,
 				E27628DF27FDD65D00773D39 /* MainListView.swift in Sources */,
 				E27628DD27FD9A6700773D39 /* AltImageData.swift in Sources */,
 				E28B4CC727FE23D70026A544 /* MainView.swift in Sources */,
