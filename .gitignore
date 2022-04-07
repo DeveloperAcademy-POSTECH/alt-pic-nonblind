@@ -2,6 +2,14 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,xcode,swift
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,xcode,swift
 
+alt_pic_nonblindApp.swift
+Preview Content
+ContentView.swift
+*.playground
+*.xcodeproj
+
+
+
 ### macOS ###
 # General
 .DS_Store
