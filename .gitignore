@@ -6,7 +6,6 @@ alt_pic_nonblindApp.swift
 Preview Content
 ContentView.swift
 *.playground
-*.xcodeproj
 
 
 
