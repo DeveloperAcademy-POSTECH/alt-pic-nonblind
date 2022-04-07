@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct originalView: View {
+    @State var currentAmount: CGFloat = 0
+    @State var lastAmount: CGFloat = 1
     var body: some View {
         Image("swim")
+            .resizable()
+            .scaleEffect(currentAmount + lastAmount)
+            .gesture(
+                MagnificationGesture()
+                    .onChanged { value in
+                        currentAmount = value - 1
+                    }
+            )
+        
     }
 }
 
