@@ -11,7 +11,7 @@ import SwiftUI
 struct alt_pic_nonblindApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
