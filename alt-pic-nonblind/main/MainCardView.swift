@@ -16,12 +16,9 @@ struct MainCardView: View {
             VStack {
                 ScrollView(.horizontal){
                     HStack(spacing: 20) {
-                        CardImage(altimage: altImageSample[0])
-                        CardImage(altimage: altImageSample[1])
-                        CardImage(altimage: altImageSample[2])
-                        CardImage(altimage: altImageSample[3])
-                        CardImage(altimage: altImageSample[4])
-                        CardImage(altimage: altImageSample[5])
+                        ForEach(0..<7) {
+                            CardImage(altimage: altImageSample[$0])
+                        }
                     }
                 }
                 
