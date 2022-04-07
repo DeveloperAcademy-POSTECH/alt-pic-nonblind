@@ -15,3 +15,4 @@ struct alt_pic_nonblindApp: App {
         }
     }
 }
+//hello
