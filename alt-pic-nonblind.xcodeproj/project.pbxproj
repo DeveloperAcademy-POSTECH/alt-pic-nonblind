@@ -104,9 +104,9 @@
 				4AD955D227FEDD0F00ABB73D /* Comment */,
 				E27628DC27FD9A6700773D39 /* AltImageData.swift */,
 				DDD2321F27FE8C3A00B211A9 /* GuidelineView.swift */,
+				E28B4CE027FFDB840026A544 /* Welcome.swift */,
 				E27628B027FC6CD200773D39 /* Assets.xcassets */,
 				E27628B227FC6CD200773D39 /* Preview Content */,
-				E28B4CE027FFDB840026A544 /* Welcome.swift */,
 			);
 			path = "alt-pic-nonblind";
 			sourceTree = "<group>";
