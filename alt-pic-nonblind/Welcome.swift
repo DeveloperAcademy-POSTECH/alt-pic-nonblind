@@ -15,7 +15,7 @@ struct Welcome: View {
                     .font(.title3)
                     .fontWeight(.semibold)
                     .padding(.bottom, 60.0)
-                Image("아이콘")
+                Image("icon")
                     .resizable()
                     .padding(.bottom)
                     .frame(width: 190,height: 200)

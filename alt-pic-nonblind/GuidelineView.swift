@@ -32,7 +32,7 @@ struct PageView: View {
             TabView {
                 ForEach(0..<30) { i in
                     ZStack {
-                        Image("가이드라인1")
+                        Image("guideline1")
                             .resizable()
                             .frame(width:390,height:390)
                                         }.clipShape(RoundedRectangle(cornerRadius: 0.0, style: .continuous))
