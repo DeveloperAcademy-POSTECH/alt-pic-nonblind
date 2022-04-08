@@ -36,21 +36,13 @@ struct Welcome: View {
                             .padding(.bottom, 70.0)
                     }
                 }
-                
-                
-                }
-
+            }
         }
-        
-}
     }
+}
 
-
-
-struct ContentView_Previews: PreviewProvider {
+struct Welcome_Previews: PreviewProvider {
     static var previews: some View {
         Welcome()
     }
 }
-//hello swift
-
