@@ -30,17 +30,17 @@ struct PageView: View {
                 .frame(height: 80)
             
             TabView {
-                ForEach(0..<30) { i in
+                ForEach(0..<8) { i in
                     ZStack {
-                        Image("guideline1")
+                        Image("guideline\(i + 1)")
                             .resizable()
                             .frame(width:390,height:390)
-                                        }.clipShape(RoundedRectangle(cornerRadius: 0.0, style: .continuous))
-                                    }
-                                    .padding(.all, 10)
-                                }
-                                .frame(width: UIScreen.main.bounds.width, height: 400)
-                            .tabViewStyle(PageTabViewStyle())
+                    }.clipShape(RoundedRectangle(cornerRadius: 0.0, style: .continuous))
+                }
+                .padding(.all, 10)
+            }
+            .frame(width: UIScreen.main.bounds.width, height: 400)
+            .tabViewStyle(PageTabViewStyle())
         }
-                        }
-                    }
+    }
+}
