@@ -29,10 +29,8 @@ struct CommentView: View {
                     Spacer()
                 }
                 Divider()
-                Image("swim").resizable().frame(width:300, height: 400.0)
                 commentList()
             }
-            .ignoresSafeArea(.keyboard)
         }
     }
 }
@@ -42,6 +40,8 @@ struct commentList: View{
     @State var nameList : [String] = ["dake1","dake2","dake3","dake4","dake5"]
     @State var likeList : [String] = ["18","10","5","4","3"]
     @State private var givenComment : String = ""
+    @State private var showingAlert = false
+    
     @FocusState private var nameIsFocused: Bool
     @FocusState var isInputActive: Bool
     
@@ -49,6 +49,15 @@ struct commentList: View{
     
     var body: some View{
         List{
+            HStack {
+                Spacer()
+                Image("swim")
+                    .resizable()
+                    .frame(width:300, height: 400.0)
+                Spacer()
+                
+            }
+            .listRowSeparator(.hidden)
             ForEach(0..<comments.count){index in
                 HStack{
                     VStack {
@@ -66,24 +75,27 @@ struct commentList: View{
                         }
                     }
                 }
-                .padding(.horizontal)
+                .listRowSeparator(.hidden)
                 .swipeActions {
-                    
                     HStack {
                         Button {
-                            print("Message deleted")
+                            print("text deleted")
                         } label: {
                             Label("Delete", systemImage: "trash")
                         }.tint(.red)
                         
                         Button {
-                            print("Message deleted")
+                            self.showingAlert = true
                         } label: {
                             Label("Report", systemImage: "bell.fill")
-                        }.tint(.gray)
+                        }
+                        .tint(.gray)
                     }
                 }
-                
+            }.alert(isPresented: $showingAlert) {
+                Alert(title: Text("해당 텍스트를 신고하시겠습니까?"), primaryButton: .destructive(Text("신고"), action: {
+                    // Some action
+                }), secondaryButton: .cancel(Text("취소")))
             }
         }.listStyle(.plain)
         HStack{
@@ -91,28 +103,32 @@ struct commentList: View{
                 "textfield",
                 text: $givenComment
             )
-            .keyboardResponsive()
             .modifier(TextFieldClearButton(text: $givenComment))
             .multilineTextAlignment(.leading)
             .submitLabel(.done)
             .onReceive(Just(givenComment)) { _ in limitText(textLimit) }
             .focused($nameIsFocused)
             .textFieldStyle(RoundedBorderTextFieldStyle())
-            .ignoresSafeArea(.keyboard, edges:.bottom).background(.black).disableAutocorrection(true)
+            .disableAutocorrection(true)
             .toolbar{ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
                 
                 Button("Done") {
                     nameIsFocused = false
                     isInputActive = false
+                    givenComment = ""
                 }
             }
             }
+            
             Button(action:{
                 nameIsFocused = false
                 print(self.$givenComment)
             }){Image(systemName: "paperplane.fill")}
+                .background(.white)
+            
         }
+        // 이걸 없애니 keyboard와 textfield사이의 공간 사라짐 ? .keyboardResponsive()
     }
     func limitText(_ upper: Int) {
         if givenComment.count > upper {
@@ -121,6 +137,8 @@ struct commentList: View{
     }
 }
 
+
+// textfield내의 텍스트 모두 지우기 버튼
 struct TextFieldClearButton: ViewModifier {
     @Binding var text: String
     
@@ -142,32 +160,32 @@ struct TextFieldClearButton: ViewModifier {
 }
 
 // textfield가 키보드 바로 위에있게
-struct KeyboardResponsiveModifier: ViewModifier {
-    @State private var offset: CGFloat = 0
-    
-    func body(content: Content) -> some View {
-        content
-            .padding(.bottom, offset)
-            .onAppear {
-                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notif in
-                    let value = notif.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
-                    let height = value.height
-                    let bottomInset = UIApplication.shared.windows.first?.safeAreaInsets.bottom
-                    self.offset = height - (bottomInset ?? 0)
-                }
-                
-                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { notif in
-                    self.offset = 0
-                }
-            }
-    }
-}
-
-extension View {
-    func keyboardResponsive() -> ModifiedContent<Self, KeyboardResponsiveModifier> {
-        return modifier(KeyboardResponsiveModifier())
-    }
-}
+//struct KeyboardResponsiveModifier: ViewModifier {
+//    @State private var offset: CGFloat = 0
+//
+//    func body(content: Content) -> some View {
+//        content
+//            .padding(.bottom, offset)
+//            .onAppear {
+//                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notif in
+//                    let value = notif.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+//                    let height = value.height
+//                    let bottomInset = UIApplication.shared.windows.first?.safeAreaInsets.bottom
+//                    self.offset = height - (bottomInset ?? 0)
+//                }
+//
+//                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { notif in
+//                    self.offset = 0
+//                }
+//            }
+//    }
+//}
+//
+//extension View {
+//    func keyboardResponsive() -> ModifiedContent<Self, KeyboardResponsiveModifier> {
+//        return modifier(KeyboardResponsiveModifier())
+//    }
+//}
 
 struct CommentView_Previews: PreviewProvider {
     static var previews: some View {
