@@ -48,7 +48,7 @@ struct CardImage: View {
                     Text("\(altimage.altNum)")
                 }
                 
-                NavigationLink(destination: AltListView()){
+                NavigationLink(destination: CommentView(altImage: altimage)){
                     Image(altimage.imageName)
                         .resizable()
                         .scaledToFill()
