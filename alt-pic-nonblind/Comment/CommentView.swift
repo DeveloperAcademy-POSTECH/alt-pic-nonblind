@@ -31,7 +31,7 @@ import Combine
 //}
 
 struct CommentView: View {
-    var imageLink = "https://post.naver.com/viewer/postView.naver?volumeNo=21378378&memberNo=15460571&vType=VERTICAL"
+    let altImage: AltImageData
     
     var body: some View {
         
@@ -40,18 +40,18 @@ struct CommentView: View {
             VStack{
                 HStack {
                     Spacer()
-                    NavigationLink(destination:originalView()){
+                    NavigationLink(destination:Image(altImage.imageName)){
                         Text("원본확인")
                     }.padding().background(.black).cornerRadius(10).foregroundColor(.white)   .navigationBarTitle("")
                         .navigationBarHidden(true)
                     Spacer()
-                    NavigationLink(destination: originalView()){
+                    NavigationLink(destination: MyWebView(urlToLoad : altImage.imageUrl)){
                         Text("링크이동")
                     }.padding().background(.black).cornerRadius(10).foregroundColor(.white)
                     Spacer()
                 }
                 Divider()
-                Image("swim").resizable().frame(width:300, height: 400.0)
+                Image(altImage.imageName).resizable().frame(width:300, height: 400.0)
                 Divider()
                 commentList()
             }
@@ -123,6 +123,6 @@ struct commentList: View{
 
 struct CommentView_Previews: PreviewProvider {
     static var previews: some View {
-        CommentView()
+        CommentView(altImage: altImageSample[0])
     }
 }
