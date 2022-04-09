@@ -37,7 +37,7 @@ struct Welcome: View {
                     }
                 }
             }
-        }
+        } .accentColor(.black)
     }
 }
 
