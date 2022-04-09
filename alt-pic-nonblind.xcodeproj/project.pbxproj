@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4AD955DC27FEDD9600ABB73D /* MyWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD955D927FEDD9600ABB73D /* MyWebView.swift */; };
 		4AD955DD27FEDD9600ABB73D /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD955DA27FEDD9600ABB73D /* CommentView.swift */; };
 		4AD955DE27FEDD9600ABB73D /* originalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD955DB27FEDD9600ABB73D /* originalView.swift */; };
 		E27628AD27FC6CD100773D39 /* alt_pic_nonblindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27628AC27FC6CD100773D39 /* alt_pic_nonblindApp.swift */; };
@@ -26,7 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4AD955D927FEDD9600ABB73D /* MyWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyWebView.swift; sourceTree = "<group>"; };
 		4AD955DA27FEDD9600ABB73D /* CommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		4AD955DB27FEDD9600ABB73D /* originalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = originalView.swift; sourceTree = "<group>"; };
 		E27628A927FC6CD100773D39 /* alt-pic-nonblind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "alt-pic-nonblind.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				4AD955DA27FEDD9600ABB73D /* CommentView.swift */,
-				4AD955D927FEDD9600ABB73D /* MyWebView.swift */,
 				4AD955DB27FEDD9600ABB73D /* originalView.swift */,
 			);
 			path = Comment;
@@ -202,7 +199,6 @@
 				E27628AF27FC6CD100773D39 /* ContentView.swift in Sources */,
 				4AD955DE27FEDD9600ABB73D /* originalView.swift in Sources */,
 				4AD955DD27FEDD9600ABB73D /* CommentView.swift in Sources */,
-				4AD955DC27FEDD9600ABB73D /* MyWebView.swift in Sources */,
 				E28B4CCB27FE83320026A544 /* TempView.swift in Sources */,
 				E28B4CC927FE35460026A544 /* MyWebView.swift in Sources */,
 				E27628AD27FC6CD100773D39 /* alt_pic_nonblindApp.swift in Sources */,
