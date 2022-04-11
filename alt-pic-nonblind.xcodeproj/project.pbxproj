@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4AD955DD27FEDD9600ABB73D /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD955DA27FEDD9600ABB73D /* CommentView.swift */; };
 		4AD955DE27FEDD9600ABB73D /* originalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD955DB27FEDD9600ABB73D /* originalView.swift */; };
+		DD0165A528030BE400570791 /* BeforeLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0165A428030BE400570791 /* BeforeLogin.swift */; };
+		DD0165A728030E1F00570791 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0165A628030E1F00570791 /* Login.swift */; };
 		DDD2322027FE8C3A00B211A9 /* GuidelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2321F27FE8C3A00B211A9 /* GuidelineView.swift */; };
 		E27628AD27FC6CD100773D39 /* alt_pic_nonblindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27628AC27FC6CD100773D39 /* alt_pic_nonblindApp.swift */; };
 		E27628B127FC6CD200773D39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E27628B027FC6CD200773D39 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 /* Begin PBXFileReference section */
 		4AD955DA27FEDD9600ABB73D /* CommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		4AD955DB27FEDD9600ABB73D /* originalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = originalView.swift; sourceTree = "<group>"; };
+		DD0165A428030BE400570791 /* BeforeLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeLogin.swift; sourceTree = "<group>"; };
+		DD0165A628030E1F00570791 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		DDD2321F27FE8C3A00B211A9 /* GuidelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidelineView.swift; sourceTree = "<group>"; };
 		E27628A927FC6CD100773D39 /* alt-pic-nonblind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "alt-pic-nonblind.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27628AC27FC6CD100773D39 /* alt_pic_nonblindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alt_pic_nonblindApp.swift; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 		E27628A027FC6CD100773D39 = {
 			isa = PBXGroup;
 			children = (
+				DD0165A628030E1F00570791 /* Login.swift */,
+				DD0165A428030BE400570791 /* BeforeLogin.swift */,
 				E27628DB27FD977200773D39 /* MyPlayground.playground */,
 				E27628AB27FC6CD100773D39 /* alt-pic-nonblind */,
 				E27628AA27FC6CD100773D39 /* Products */,
@@ -209,10 +215,12 @@
 				E28B4CD327FECD590026A544 /* UserProfileView.swift in Sources */,
 				E27628DF27FDD65D00773D39 /* MainListView.swift in Sources */,
 				E27628DD27FD9A6700773D39 /* AltImageData.swift in Sources */,
+				DD0165A528030BE400570791 /* BeforeLogin.swift in Sources */,
 				E28B4CD427FECD590026A544 /* BadgesView.swift in Sources */,
 				E28B4CC727FE23D70026A544 /* MainView.swift in Sources */,
 				E28B4CD527FECD590026A544 /* ProfileEditView.swift in Sources */,
 				E28B4CCD27FE83CC0026A544 /* MainCardView.swift in Sources */,
+				DD0165A728030E1F00570791 /* Login.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
