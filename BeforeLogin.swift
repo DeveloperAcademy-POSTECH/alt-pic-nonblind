@@ -9,17 +9,19 @@ import SwiftUI
 
 struct BeforeLogin: View {
     var body: some View {
-            NavigationView {
                 VStack {
+                    Spacer()
+                        .frame(height: 50)
+                        
                     Text("완벽해요!\n그럼 이제,\n평등한 디지털 사회를\n만들러 가볼까요?")
                         .font(.title)
                         .fontWeight(.medium)
                     .multilineTextAlignment(.center)
                     .lineSpacing(10)
-                    .padding(70)
                     
                     Spacer()
-                    
+                        .frame(height: 100)
+
                     ZStack {
                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Corner Radius@*/10.0/*@END_MENU_TOKEN@*/)
                             .frame(width:220, height:60)
@@ -35,20 +37,19 @@ struct BeforeLogin: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Corner Radius@*/10.0/*@END_MENU_TOKEN@*/)
                             .frame(width:220, height:60)
-                            .padding(.bottom, 130)
-                    NavigationLink(destination: Login()) { Text("일단 둘러볼게요")
+                            .padding(.bottom, 170)
+                    NavigationLink(destination: MainCardView()) { Text("일단 둘러볼게요")
                             .font(.title2)
                             .fontWeight(.bold)
                             .foregroundColor(Color.white)
-                            .padding(.bottom, 130)
+                            .padding(.bottom, 170)
 
                     }
                     }
                     
             }
-        }.accentColor(.black)
+        }
     }
-}
 
 struct BeforeLogin_Previews: PreviewProvider {
     static var previews: some View {
