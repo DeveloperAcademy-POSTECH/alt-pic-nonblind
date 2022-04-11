@@ -9,7 +9,8 @@ import Foundation
 
 
 
-struct AltImageData{
+struct AltImageData: Identifiable{
+    let id = UUID().uuidString
     let imageName: String // 이미지 이름
     let imageUrl: String // 대체텍스트 원본 url
     var altNum : Int // 대체텍스트 댓글 달린 개수
