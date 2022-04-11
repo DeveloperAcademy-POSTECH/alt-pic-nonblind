@@ -49,77 +49,80 @@ struct commentList: View{
     let textLimit = 125 //Your limit
     
     var body: some View{
-        List{
-            HStack {
-                Spacer()
-                Image("swim")
-                    .resizable()
-                    .frame(width:300, height: 400.0)
-                Spacer()
-                
-            }
-            .listRowSeparator(.hidden)
-            ForEach(0..<comments.count){ index in
-                HStack{
-                    VStack {
-                        Spacer()
-                        Image("profile")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 30, height: 30)
-                            .background(.gray)
-                            .clipShape(Circle())
-                        //                        Circle().frame(width:30,height:30)
-                        Text(nameList[index])
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true)
-                        Spacer()
-                    }.frame(width:60)
-                    VStack(alignment:.leading) {
-                        Text(comments[index])
-                            .fixedSize(horizontal: false, vertical: true)
-                            .multilineTextAlignment(.leading)
-                        HStack {
-                            Button(action: {
-                                self.isLike[index].toggle()
-                            },label: {
-                                Image(systemName: self.isLike[index] == true ? "heart.fill" : "heart")
-                                    .foregroundColor(.red)
-                                    .frame(width: 10, height: 10)
-                                    .padding(.leading)
-                            })
-                            .buttonStyle(.plain)
-                            //                            Image(systemName: "heart.fill").frame(width: 10, height: 10).padding(.leading).foregroundColor(.red)
-                            Text(isLike[index] == true ? "\(likeList[index] + 1)" : "\(likeList[index])")
-                            Spacer()
-                        }
-                    }
-                }
-                .listRowSeparator(.hidden)
-                .swipeActions {
-                    HStack {
-                        if nameList[index] == "Dake"{
-                            Button {
-                                print("text deleted")
-                            } label: {
-                                Label("Delete", systemImage: "trash")
-                            }.tint(.red)
-                        } else {
-                            Button {
-                                self.showingAlert = true
-                            } label: {
-                                Label("Report", systemImage: "bell.fill")
-                            }
-                            .tint(.gray)
-                        }
-                    }
-                }
-            }.alert(isPresented: $showingAlert) {
-                Alert(title: Text("해당 텍스트를 신고하시겠습니까?"), primaryButton: .destructive(Text("신고"), action: {
-                    // Some action
-                }), secondaryButton: .cancel(Text("취소")))
-            }
-        }.listStyle(.plain)
+        CommentRowView()
+//        List{
+//            HStack {
+//                Spacer()
+//                Image("swim")
+//                    .resizable()
+//                    .frame(width:300, height: 400.0)
+//                Spacer()
+//
+//            }
+//            .listRowSeparator(.hidden)
+//            ForEach(0..<comments.count){ index in
+//                HStack{
+//                    VStack {
+//                        Spacer()
+//                        Image("profile")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: 30, height: 30)
+//                            .background(.gray)
+//                            .clipShape(Circle())
+//                        //                        Circle().frame(width:30,height:30)
+//                        Text(nameList[index])
+//                            .multilineTextAlignment(.center)
+//                            .fixedSize(horizontal: false, vertical: true)
+//                        Spacer()
+//                    }
+//                    .frame(width:60)
+//
+//                    VStack(alignment:.leading) {
+//                        Text(comments[index])
+//                            .fixedSize(horizontal: false, vertical: true)
+//                            .multilineTextAlignment(.leading)
+//                        HStack {
+//                            Button(action: {
+//                                self.isLike[index].toggle()
+//                            },label: {
+//                                Image(systemName: self.isLike[index] == true ? "heart.fill" : "heart")
+//                                    .foregroundColor(.red)
+//                                    .frame(width: 10, height: 10)
+//                                    .padding(.leading)
+//                            })
+//                            .buttonStyle(.plain)
+//
+//                            Text(isLike[index] == true ? "\(likeList[index] + 1)" : "\(likeList[index])")
+//                            Spacer()
+//                        }
+//                    }
+//                }
+//                .listRowSeparator(.hidden)
+//                .swipeActions(allowsFullSwipe: false) {
+//                    HStack {
+//                        if nameList[index] == "Dake"{
+//                            Button {
+//                                print("text deleted")
+//                            } label: {
+//                                Label("", systemImage: "trash")
+//                            }.tint(.red)
+//                        } else {
+//                            Button {
+//                                self.showingAlert = true
+//                            } label: {
+//                                Label("", systemImage: "bell.fill")
+//                            }
+//                            .tint(.gray)
+//                        }
+//                    }
+//                }
+//            }.alert(isPresented: $showingAlert) {
+//                Alert(title: Text("해당 텍스트를 신고하시겠습니까?"), primaryButton: .destructive(Text("신고"), action: {
+//                    // Some action
+//                }), secondaryButton: .cancel(Text("취소")))
+//            }
+//        }.listStyle(.plain)
         HStack{
             TextField(
                 "textfield",
@@ -181,33 +184,6 @@ struct TextFieldClearButton: ViewModifier {
     }
 }
 
-// textfield가 키보드 바로 위에있게
-//struct KeyboardResponsiveModifier: ViewModifier {
-//    @State private var offset: CGFloat = 0
-//
-//    func body(content: Content) -> some View {
-//        content
-//            .padding(.bottom, offset)
-//            .onAppear {
-//                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notif in
-//                    let value = notif.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
-//                    let height = value.height
-//                    let bottomInset = UIApplication.shared.windows.first?.safeAreaInsets.bottom
-//                    self.offset = height - (bottomInset ?? 0)
-//                }
-//
-//                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { notif in
-//                    self.offset = 0
-//                }
-//            }
-//    }
-//}
-//
-//extension View {
-//    func keyboardResponsive() -> ModifiedContent<Self, KeyboardResponsiveModifier> {
-//        return modifier(KeyboardResponsiveModifier())
-//    }
-//}
 
 struct CommentView_Previews: PreviewProvider {
     static var previews: some View {

@@ -9,36 +9,69 @@ import SwiftUI
 
 struct CommentRowView: View {
     
+    @State var CommentDataSample : [CommentData] = [
+        CommentData(profileImageName: "profile",profileName: "Dake", altText: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다.", isliked: false, likeNum: 1),
+        CommentData(profileImageName: "profile",profileName: "Dany", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isliked: false, likeNum: 15),
+        CommentData(profileImageName: "profile",profileName: "Hardy", altText: "굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라", isliked: false, likeNum:10),
+        CommentData(profileImageName: "profile",profileName: "Lance", altText: "굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라", isliked: false, likeNum:8),
+        CommentData(profileImageName: "profile",profileName: "Monica", altText: "굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라", isliked: false, likeNum:5)
+    ]
+    
+    
+    
     @State private var showingAlert = false
+    
     
     var body: some View {
         List{
-            ForEach(0..<5){ index in
-                commentRow(comment: CommentDataSample[index])
-                    .alert(isPresented: $showingAlert) {
-                                            Alert(title: Text("해당 텍스트를 신고하시겠습니까?"), primaryButton: .destructive(Text("신고"), action: {
-                                                // Some action
-                                            }), secondaryButton: .cancel(Text("취소")))
-                                        }
-            }
+            HStack {
+                           Spacer()
+                           Image("swim")
+                               .resizable()
+                               .frame(width:300, height: 400.0)
+                           Spacer()
            
-//            VStack{
-//                ForEach(0..<5){ index in
-//                    commentRow(comment: CommentDataSample[index])
-//                }.alert(isPresented: $showingAlert) {
-//                    Alert(title: Text("해당 텍스트를 신고하시겠습니까?"), primaryButton: .destructive(Text("신고"), action: {
-//                        // Some action
-//                    }), secondaryButton: .cancel(Text("취소")))
-//                }
-//            }
-        }.listStyle(.plain)
+                       }
+                       .listRowSeparator(.hidden)
+            ForEach(CommentDataSample.sorted(by: { $0.likeNum > $1.likeNum }), id:\.self){ sample in
+                commentRow(comment: sample)
+                    .listRowSeparator(.hidden)
+                    .swipeActions(allowsFullSwipe: false) {
+                        HStack {
+                            if sample.profileName == "Dake"{
+                                Button {
+                                    if let index = CommentDataSample.firstIndex(of: sample){
+                                        CommentDataSample.remove(at: index)
+                                    }
+                                    
+                                } label: {
+                                    Label("", systemImage: "trash")
+                                }.tint(.red)
+                            } else {
+                                Button {
+                                    self.showingAlert = true
+                                } label: {
+                                    Label("", systemImage: "bell.fill")
+                                }
+                                .tint(.gray)
+                            }
+                        }
+                    }
+                    .alert(isPresented: $showingAlert) {
+                        Alert(title: Text("해당 텍스트를 신고하시겠습니까?"), primaryButton: .destructive(Text("신고"), action: {
+                            // 신고와 관련된 func
+                        }), secondaryButton: .cancel(Text("취소")))
+                    }
+            }
+        }
+        .listStyle(.plain)
     }
 }
 
 struct commentRow : View{
     @State private var showingAlert = false
     
-    let comment : CommentData
+    @State var comment : CommentData
     
     var body: some View {
         HStack{
@@ -53,8 +86,12 @@ struct commentRow : View{
                 Text(comment.profileName)
                 Spacer()
             }
+            .frame(width:60)
+            
             VStack(alignment:.leading) {
                 Text(comment.altText)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .multilineTextAlignment(.leading)
                 HStack {
                     Button(action: {
                         self.comment.isliked.toggle()
@@ -62,30 +99,12 @@ struct commentRow : View{
                         Image(systemName: comment.isliked == true ? "heart.fill" : "heart")
                             .foregroundColor(.red)
                             .frame(width: 10, height: 10)
-                            .padding(.leading)
-                    }
-                    .buttonStyle(.plain)
-                    Text("\(comment.likeNum)")
+                    }.padding(.leading, 5)
+                        .buttonStyle(.plain)
+                    Text(comment.isliked == true ? "\(comment.likeNum + 1)" : "\(comment.likeNum)")
+                    
                     Spacer()
                 }
-            }
-        }
-        .listRowSeparator(.hidden)
-        .swipeActions {
-            HStack {
-                Button {
-                    print("text deleted")
-                } label: {
-                    Label("Delete", systemImage: "trash")
-                }.tint(.red)
-                
-                Button {
-                    self.showingAlert = true
-                    print(showingAlert)
-                } label: {
-                    Label("Report", systemImage: "bell.fill")
-                }
-                .tint(.gray)
             }
         }
     }
