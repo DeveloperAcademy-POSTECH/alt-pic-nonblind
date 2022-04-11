@@ -28,9 +28,9 @@ struct Welcome: View {
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Corner Radius@*/10.0/*@END_MENU_TOKEN@*/)
-                        .frame(width:40, height:40)
+                        .frame(width:52, height:40)
                         .padding(.bottom, 70.0)
-                    NavigationLink(destination: GuidelineView()) { Text("Go")
+                    NavigationLink(destination: GuidelineView()) { Text("GO")
                             .fontWeight(.bold)
                             .foregroundColor(Color.white)
                             .padding(.bottom, 70.0)
