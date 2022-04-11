@@ -25,6 +25,7 @@
 		E28B4CD427FECD590026A544 /* BadgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B4CD127FECD590026A544 /* BadgesView.swift */; };
 		E28B4CD527FECD590026A544 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B4CD227FECD590026A544 /* ProfileEditView.swift */; };
 		E28B4CE127FFDB840026A544 /* Welcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B4CE027FFDB840026A544 /* Welcome.swift */; };
+		E28B4D0B2803A45A0026A544 /* snapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B4D0A2803A45A0026A544 /* snapCarousel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		E28B4CD127FECD590026A544 /* BadgesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesView.swift; sourceTree = "<group>"; };
 		E28B4CD227FECD590026A544 /* ProfileEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		E28B4CE027FFDB840026A544 /* Welcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome.swift; sourceTree = "<group>"; };
+		E28B4D0A2803A45A0026A544 /* snapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = snapCarousel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				E28B4CC627FE23C10026A544 /* MainView.swift */,
 				E27628DE27FDD65D00773D39 /* MainListView.swift */,
 				E28B4CCC27FE83CC0026A544 /* MainCardView.swift */,
+				E28B4D0A2803A45A0026A544 /* snapCarousel.swift */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				E28B4CE127FFDB840026A544 /* Welcome.swift in Sources */,
 				E28B4CD327FECD590026A544 /* UserProfileView.swift in Sources */,
 				E27628DF27FDD65D00773D39 /* MainListView.swift in Sources */,
+				E28B4D0B2803A45A0026A544 /* snapCarousel.swift in Sources */,
 				E27628DD27FD9A6700773D39 /* AltImageData.swift in Sources */,
 				DD0165A528030BE400570791 /* BeforeLogin.swift in Sources */,
 				E28B4CD427FECD590026A544 /* BadgesView.swift in Sources */,
