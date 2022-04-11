@@ -98,10 +98,6 @@ struct ProfileEditView: View {
                         .onChange(of: currentName) { newValue in
                             if allNames.contains(currentName) {
                                 showToast = true
-                                nickname = String(currentName.prefix(upTo: currentName.index(before: currentName.endIndex)))
-                            }
-                            else {
-                                nickname = currentName
                             }
                         }
                         .font(.system(size: 20))
@@ -111,6 +107,9 @@ struct ProfileEditView: View {
                                 Spacer()
 
                                 Button("Done") {
+                                    if !allNames.contains(currentName){
+                                        nickname = currentName
+                                    }
                                     isInputActive = false
                                 }
                             }
@@ -143,8 +142,8 @@ struct ProfileEditView: View {
 }
 
 
-//struct EditProfileView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EditProfileView()
-//    }
-//}
+struct EditProfileView_Previews: PreviewProvider {
+    static var previews: some View {
+        UserProfileView()
+    }
+}
