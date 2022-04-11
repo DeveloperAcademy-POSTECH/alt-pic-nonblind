@@ -8,13 +8,13 @@
 import Foundation
 import SwiftUI
 
-struct CommentData:Hashable{
-    var profileImageName: String //프로필 사진
-    var profileName: String // 프로필 이름
-    var altText: String // 댓글
-    var isliked: Bool
-    var likeNum: Int
-}
+//struct CommentData:Hashable{
+//    var profileImageName: String //프로필 사진
+//    var profileName: String // 프로필 이름
+//    var altText: String // 댓글
+//    var isliked: Bool
+//    var likeNum: Int
+//}
 
 //var CommentDataSample = [
 //    CommentData(profileImageName: "profile",profileName: "Dake", altText: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다.", isliked: false, likeNum: 18),

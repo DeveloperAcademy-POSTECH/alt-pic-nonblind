@@ -9,12 +9,29 @@ import SwiftUI
 
 struct CommentRowView: View {
     
-    @State var CommentDataSample : [CommentData] = [
-        CommentData(profileImageName: "profile",profileName: "Dake", altText: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다.", isliked: false, likeNum: 1),
-        CommentData(profileImageName: "profile",profileName: "Dany", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isliked: false, likeNum: 15),
-        CommentData(profileImageName: "profile",profileName: "Hardy", altText: "굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라", isliked: false, likeNum:10),
-        CommentData(profileImageName: "profile",profileName: "Lance", altText: "굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라", isliked: false, likeNum:8),
-        CommentData(profileImageName: "profile",profileName: "Monica", altText: "굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라", isliked: false, likeNum:5)
+    // 랜스 데이터와 합치기전 state
+    //    @State var CommentDataSample : [CommentData] = [
+    //        CommentData(profileImageName: "profile",profileName: "Dake", altText: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다.", isliked: false, likeNum: 1),
+    //        CommentData(profileImageName: "profile",profileName: "Dany", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isliked: false, likeNum: 15),
+    //        CommentData(profileImageName: "profile",profileName: "Hardy", altText: "굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라", isliked: false, likeNum:10),
+    //        CommentData(profileImageName: "profile",profileName: "Lance", altText: "굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라", isliked: false, likeNum:8),
+    //        CommentData(profileImageName: "profile",profileName: "Monica", altText: "굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라", isliked: false, likeNum:5)
+    //    ]
+    
+    //랜스의 AltImageData
+    @State var CommentDataSample = [
+        CommentData(writer: "Dake", writerProfileIamgeName: "profile", altText: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다.", isLiked: false, like: ["Hardy","Dany"]),
+        CommentData(writer: "Dany", writerProfileIamgeName: "profile", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Hardy","Dake"]),
+        CommentData(writer: "Lance", writerProfileIamgeName: "profile", altText: "굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라", isLiked: false, like: ["Hardy","Dany",]),
+        CommentData(writer: "Hardy", writerProfileIamgeName: "profile", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Lance","Dake","Monica"]),
+        CommentData(writer: "Monica", writerProfileIamgeName: "profile", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Hardy","Dake","Dake","Dany"])
+        //    CommentData(writer: "dake", like: ["hardy", "dani"], comment: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다."),
+        //    CommentData(writer: "dani", like: ["hardy", "dani"], comment: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가"),
+        //    CommentData(writer: "monica", like: ["hardy", "dani"], comment: "굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라"),
+        //    CommentData(writer: "hardy", like: ["hardy", "dani"], comment: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다."),
+        //    CommentData(writer: "lance", like: ["hardy", "dani"], comment: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다."),
+        //    CommentData(writer: "leo", like: ["hardy", "dani"], comment: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다."),
+        //    CommentData(writer: "judy", like: ["hardy", "dani"], comment: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다.")
     ]
     
     
@@ -25,20 +42,20 @@ struct CommentRowView: View {
     var body: some View {
         List{
             HStack {
-                           Spacer()
-                           Image("swim")
-                               .resizable()
-                               .frame(width:300, height: 400.0)
-                           Spacer()
-           
-                       }
-                       .listRowSeparator(.hidden)
-            ForEach(CommentDataSample.sorted(by: { $0.likeNum > $1.likeNum }), id:\.self){ sample in
+                Spacer()
+                Image("swim")
+                    .resizable()
+                    .frame(width:300, height: 400.0)
+                Spacer()
+                
+            }
+            .listRowSeparator(.hidden)
+            ForEach(CommentDataSample.sorted(by: { $0.like.count > $1.like.count }), id:\.self){ sample in
                 commentRow(comment: sample)
                     .listRowSeparator(.hidden)
                     .swipeActions(allowsFullSwipe: false) {
                         HStack {
-                            if sample.profileName == "Dake"{
+                            if sample.writer == "Dake"{
                                 Button {
                                     if let index = CommentDataSample.firstIndex(of: sample){
                                         CommentDataSample.remove(at: index)
@@ -77,13 +94,13 @@ struct commentRow : View{
         HStack{
             VStack {
                 Spacer()
-                Image(comment.profileImageName)
+                Image(comment.writerProfileIamgeName)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 30, height: 30)
                     .background(.gray)
                     .clipShape(Circle())
-                Text(comment.profileName)
+                Text(comment.writer)
                 Spacer()
             }
             .frame(width:60)
@@ -94,14 +111,14 @@ struct commentRow : View{
                     .multilineTextAlignment(.leading)
                 HStack {
                     Button(action: {
-                        self.comment.isliked.toggle()
+                        self.comment.isLiked.toggle()
                     }){
-                        Image(systemName: comment.isliked == true ? "heart.fill" : "heart")
+                        Image(systemName: comment.isLiked == true ? "heart.fill" : "heart")
                             .foregroundColor(.red)
                             .frame(width: 10, height: 10)
                     }.padding(.leading, 5)
                         .buttonStyle(.plain)
-                    Text(comment.isliked == true ? "\(comment.likeNum + 1)" : "\(comment.likeNum)")
+                    Text(comment.isLiked == true ? "\(comment.like.count + 1)" : "\(comment.like.count)")
                     
                     Spacer()
                 }
