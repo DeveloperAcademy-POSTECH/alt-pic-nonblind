@@ -59,11 +59,11 @@ struct commentList: View{
     @State var isLike = [false,false,false,false,false]
     
     @State var CommentDataSampleOrigin = [
-        CommentData(writer: "Dake", writerProfileIamgeName: "profile", altText: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다.", isLiked: false, like: ["Hardy","Dany"]),
-        CommentData(writer: "Dany", writerProfileIamgeName: "profile", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Hardy","Dake"]),
-        CommentData(writer: "Lance", writerProfileIamgeName: "profile", altText: "굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라", isLiked: false, like: ["Hardy","Dany",]),
-        CommentData(writer: "Hardy", writerProfileIamgeName: "profile", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Lance","Dake","Monica"]),
-        CommentData(writer: "Monica", writerProfileIamgeName: "profile", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Hardy","Dake","Dake","Dany"])
+        CommentData(writer: "Dake", writerProfileIamgeName: "bisil", altText: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다.", isLiked: false, like: ["Hardy","Dany"]),
+        CommentData(writer: "Dany", writerProfileIamgeName: "profileTest", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Hardy","Dake"]),
+        CommentData(writer: "Lance", writerProfileIamgeName: "toong", altText: "굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라", isLiked: false, like: ["Hardy","Dany",]),
+        CommentData(writer: "Hardy", writerProfileIamgeName: "jingu", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Lance","Dake","Monica"]),
+        CommentData(writer: "Monica", writerProfileIamgeName: "dora", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Hardy","Dake","Dake","Dany"])
     ]
     
     
@@ -165,7 +165,7 @@ struct commentList: View{
                 Button("Done") {
                     nameIsFocused = false
                     isInputActive = false
-                    CommentDataSampleOrigin.append( CommentData(writer: "Dake", writerProfileIamgeName: "profile", altText: "\(givenComment)", isLiked: false, like: []))
+                    CommentDataSampleOrigin.append( CommentData(writer: "Dake", writerProfileIamgeName: "bisil", altText: "\(givenComment)", isLiked: false, like: []))
                     givenComment = ""
                 }
             }
@@ -173,7 +173,8 @@ struct commentList: View{
             
             Button(action:{
                 nameIsFocused = false
-                print(self.$givenComment)
+                CommentDataSampleOrigin.append( CommentData(writer: "Dake", writerProfileIamgeName: "bisil", altText: "\(givenComment)", isLiked: false, like: []))
+                givenComment = ""
             }){Image(systemName: "paperplane.fill")}
                 .background(.white)
             
