@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct BadgesView: View {
+    /*
+        DUMMY_DATA
+    */
     let data = (1...50).map { "\($0)" }
     
+    // columns 정의
     let columns = [
        GridItem(.flexible()),
        GridItem(.flexible()),
@@ -18,8 +22,10 @@ struct BadgesView: View {
     
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: columns, spacing: 20) {
+            // 가로 3개씩 배치
+            LazyVGrid(columns: columns, spacing: 20) {  // 세로줄 개수와 위아래 간격 지정
                 ForEach(data, id: \.self) { item in
+                    // 뱃지
                     VStack {
                         let testnum: Int = Int(item)!%3 + 1
                         let testimage = "badge\(testnum)"
