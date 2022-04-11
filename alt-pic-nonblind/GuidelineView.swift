@@ -27,7 +27,7 @@ struct PageView: View {
     var body: some View {
         VStack {
             Spacer()
-                .frame(height: 80)
+                .frame(height: 50)
             
             TabView {
                 ForEach(0..<8) { i in
@@ -41,6 +41,16 @@ struct PageView: View {
             }
             .frame(width: UIScreen.main.bounds.width, height: 400)
             .tabViewStyle(PageTabViewStyle())
+            
+            Spacer()
+                .frame(height: 70)
+            
+            NavigationLink(destination: BeforeLogin()) {
+                Text("Next")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color.black)
+            }
         }
     }
 }
