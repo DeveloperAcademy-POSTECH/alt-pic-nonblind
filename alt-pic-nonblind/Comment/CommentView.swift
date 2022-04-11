@@ -58,13 +58,22 @@ struct commentList: View{
     @State private var showingAlert = false
     @State var isLike = [false,false,false,false,false]
     
+    @State var CommentDataSampleOrigin = [
+        CommentData(writer: "Dake", writerProfileIamgeName: "profile", altText: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다.", isLiked: false, like: ["Hardy","Dany"]),
+        CommentData(writer: "Dany", writerProfileIamgeName: "profile", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Hardy","Dake"]),
+        CommentData(writer: "Lance", writerProfileIamgeName: "profile", altText: "굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라", isLiked: false, like: ["Hardy","Dany",]),
+        CommentData(writer: "Hardy", writerProfileIamgeName: "profile", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Lance","Dake","Monica"]),
+        CommentData(writer: "Monica", writerProfileIamgeName: "profile", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Hardy","Dake","Dake","Dany"])
+    ]
+    
+    
     @FocusState private var nameIsFocused: Bool
     @FocusState var isInputActive: Bool
     
     let textLimit = 125 //Your limit
     
     var body: some View{
-        CommentRowView()
+        CommentRowView(CommentDataSample: $CommentDataSampleOrigin)
         //        List{
         //            HStack {
         //                Spacer()
@@ -156,6 +165,7 @@ struct commentList: View{
                 Button("Done") {
                     nameIsFocused = false
                     isInputActive = false
+                    CommentDataSampleOrigin.append( CommentData(writer: "Dake", writerProfileIamgeName: "profile", altText: "\(givenComment)", isLiked: false, like: []))
                     givenComment = ""
                 }
             }
