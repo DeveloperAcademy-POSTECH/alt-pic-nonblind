@@ -17,7 +17,7 @@ struct Login: View {
             
             ZStack {
                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Corner Radius@*/10.0/*@END_MENU_TOKEN@*/)
-                    .frame(width:220, height:60)
+                    .frame(width:250, height:80)
                     .foregroundColor(.green)
                     .padding(.bottom,40)
                 Text("네이버 로그인")
@@ -25,11 +25,12 @@ struct Login: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
                     .padding(.bottom,40)
+                    .padding(.leading,60)
                     .padding(30)
             }
             ZStack {
                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Corner Radius@*/10.0/*@END_MENU_TOKEN@*/)
-                    .frame(width:220, height:60)
+                    .frame(width:250, height:80)
                     .foregroundColor(.yellow)
                     .padding(.bottom,40)
                 Text("카카오톡 로그인")
@@ -37,11 +38,12 @@ struct Login: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
                     .padding(.bottom,40)
+                    .padding(.leading,60)
                     .padding(30)
             }
             ZStack {
                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Corner Radius@*/10.0/*@END_MENU_TOKEN@*/)
-                    .frame(width:220, height:60)
+                    .frame(width:250, height:80)
                     .foregroundColor(.red)
                     .padding(.bottom,40)
                 Text("구글 로그인")
@@ -49,6 +51,7 @@ struct Login: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
                     .padding(.bottom,40)
+                    .padding(.leading, 60)
                     .padding(30)
             }
         }
