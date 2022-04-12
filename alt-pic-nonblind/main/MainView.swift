@@ -43,6 +43,28 @@ private extension MainView {
     }
 }
 
+struct ImageView: View {
+    let altimage: AltImageData
+    let frameWidth: CGFloat
+    let frameHeight: CGFloat
+    let cornerSize: CGFloat
+
+    var body: some View {
+        NavigationLink(destination: CommentView(altImage: altimage)){
+            ZStack {
+                Rectangle().fill(Color(uiColor: UIColor.systemGray6))
+                Image(altimage.imageName)
+                    .resizable()
+                    .scaledToFit()
+            }
+            .frame(width: frameWidth, height: frameHeight)
+            .cornerRadius(cornerSize)
+        }
+    }
+}
+
+
+
 struct RawImageView: View {
     let imageName: String
     

@@ -4,6 +4,9 @@
 
 *.playground
 
+Podfile
+Pods/*
+Podfile.lock
 
 
 ### macOS ###
