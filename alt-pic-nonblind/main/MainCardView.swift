@@ -8,38 +8,26 @@
 import SwiftUI
 
 struct MainCardView: View {
-    @State private var imageName:String = "avocado"
-    @State private var imageUrl:String = "http://www.naver.com"
-    
     @State var currentIndex: Int = 0
-//    @State var posts: [Post] = []
     
     var body: some View {
             VStack {
                 SnapCarousel(index: $currentIndex, items: altImageSample) {post in
-                    
-                    GeometryReader{proxy in
-                        
-                        let size = proxy.size
-                        
-//                        NavigationLink(destination: AltListView()){
-                        Image(post.imageName)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: size.width)
-                            .cornerRadius(12)
-//                        }
-                        
+                    NavigationLink(destination: AltListView()){
+                        GeometryReader{proxy in
+                            let size = proxy.size
+                                ZStack {
+                                    Rectangle().fill(Color(uiColor: UIColor.systemGray6))
+                                    Image(post.imageName)
+                                        .resizable()
+                                        .scaledToFit()
+                                }
+                                .frame(width: size.width, height: 400)
+                                .cornerRadius(12)
+                        }
                     }
                 }
                 .padding(.vertical,40)
-//                ScrollView(.horizontal){
-//                    HStack(spacing: 20) {
-//                        ForEach(0..<7) {
-//                            CardImage(altimage: altImageSample[$0])
-//                        }
-//                    }
-//                }
                 
                 HStack {
                     RawImageView(imageName: altImageSample[currentIndex].imageName)
