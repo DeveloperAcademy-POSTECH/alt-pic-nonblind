@@ -7,15 +7,26 @@
 
 import SwiftUI
 struct MainView: View {
+    
     @State private var isCardView = false
-   
+    @State var altImageCommentData : [AltImageData] = [
+            AltImageData(imageName: "apple", imageUrl: "https://www.naver.com", altNum: 5,imageComments: CommentDataSample),
+            AltImageData(imageName: "avocado", imageUrl: "https://www.google.com", altNum: 20,imageComments: CommentDataSample),
+            AltImageData(imageName: "banana", imageUrl: "https://www.naver.com", altNum: 21,imageComments: CommentDataSample),
+            AltImageData(imageName: "blueberry", imageUrl: "https://www.naver.com", altNum: 3,imageComments: CommentDataSample),
+            AltImageData(imageName: "cherry", imageUrl: "https://www.naver.com", altNum: 7,imageComments: CommentDataSample),
+            AltImageData(imageName: "lemon", imageUrl: "https://www.naver.com", altNum: 3,imageComments: CommentDataSample),
+            AltImageData(imageName: "lime", imageUrl: "https://www.naver.com", altNum: 7,imageComments: CommentDataSample),
+            AltImageData(imageName: "lime", imageUrl: "https://www.naver.com", altNum: 10,imageComments: CommentDataSample)
+        ]
+    
     var body: some View {
         NavigationView {
             VStack {
                 if isCardView {
-                    MainCardView() // 카드형
+                    MainCardView(altImageCommentData: $altImageCommentData) // 카드형
                 } else {
-                    MainListView() // 목록형
+                    MainListView(altImageCommentData: $altImageCommentData) // 목록형
                 }
             }
             .navigationBarTitle("", displayMode: .inline)
@@ -44,16 +55,17 @@ private extension MainView {
 }
 
 struct ImageView: View {
-    let altimage: AltImageData
+    @Binding var altImageCommentElement: AltImageData
+    
     let frameWidth: CGFloat
     let frameHeight: CGFloat
     let cornerSize: CGFloat
 
     var body: some View {
-        NavigationLink(destination: CommentView(altImage: altimage)){
+        NavigationLink(destination: CommentView(altImageCommentElement: $altImageCommentElement)){
             ZStack {
                 Rectangle().fill(Color(uiColor: UIColor.systemGray6))
-                Image(altimage.imageName)
+                Image(altImageCommentElement.imageName)
                     .resizable()
                     .scaledToFit()
             }
@@ -66,10 +78,11 @@ struct ImageView: View {
 
 
 struct RawImageView: View {
-    let imageName: String
+
+    @Binding var altImageCommentElement : AltImageData
     
     var body: some View {
-        NavigationLink(destination: Image(imageName)){
+        NavigationLink(destination: originalView(altImageCommentElement: $altImageCommentElement)){
             Text("원본 확인")
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 10).strokeBorder())

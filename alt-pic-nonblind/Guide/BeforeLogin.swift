@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BeforeLogin: View {
+
     var body: some View {
                 VStack {
                     Spacer()
@@ -38,7 +39,7 @@ struct BeforeLogin: View {
                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Corner Radius@*/10.0/*@END_MENU_TOKEN@*/)
                             .frame(width:220, height:60)
                             .padding(.bottom, 170)
-                    NavigationLink(destination: MainCardView()) { Text("일단 둘러볼게요")
+                    NavigationLink(destination: MainView()) { Text("일단 둘러볼게요")
                             .font(.title2)
                             .fontWeight(.bold)
                             .foregroundColor(Color.white)
