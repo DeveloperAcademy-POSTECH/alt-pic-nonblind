@@ -50,6 +50,48 @@ struct SnapCarousel<Content: View,T: Identifiable>: View {
             let width = proxy.size.width - (trailingSpace - spacing)
             let adjustMentWidth = (trailingSpace / 2) - spacing
 
+            let dragGesture = DragGesture()
+                .updating($offset, body: { value, out, _ in
+
+                    out = value.translation.width
+                })
+                .onEnded({ value in
+
+                    // Updating Current Index....
+                    let offsetX = value.translation.width
+
+                    // were going to convert the tranlsation into progress (0 - 1)
+                    // and round the value...
+                    // based on the progress increasing or decreasing the currentIndex...
+
+                    let progress = -offsetX / width
+
+                    let roundIndex = progress.rounded()
+
+                    // setting min...
+                    currentIndex = max(min(currentIndex + Int(roundIndex), list.count - 1), 0)
+
+                    // updating index....
+                    currentIndex = index
+                })
+                .onChanged({ value in
+                    // updating only index....
+
+                    // Updating Current Index....
+                    let offsetX = value.translation.width
+
+                    // were going to convert the tranlsation into progress (0 - 1)
+                    // and round the value...
+                    // based on the progress increasing or decreasing the currentIndex...
+
+                    let progress = -offsetX / width
+
+                    let roundIndex = progress.rounded()
+
+                    // setting min...
+                    index = max(min(currentIndex + Int(roundIndex), list.count - 1), 0)
+                })
+            
             HStack(spacing: spacing){
 
                 ForEach(list){item in
@@ -62,50 +104,7 @@ struct SnapCarousel<Content: View,T: Identifiable>: View {
             .padding(.horizontal,spacing)
             // setting only after 0th index..
             .offset(x: (CGFloat(currentIndex) * -width) + (currentIndex != 0 ? adjustMentWidth : 0) + offset)
-            .gesture(
-
-                DragGesture()
-                    .updating($offset, body: { value, out, _ in
-
-                        out = value.translation.width
-                    })
-                    .onEnded({ value in
-
-                        // Updating Current Index....
-                        let offsetX = value.translation.width
-
-                        // were going to convert the tranlsation into progress (0 - 1)
-                        // and round the value...
-                        // based on the progress increasing or decreasing the currentIndex...
-
-                        let progress = -offsetX / width
-
-                        let roundIndex = progress.rounded()
-
-                        // setting min...
-                        currentIndex = max(min(currentIndex + Int(roundIndex), list.count - 1), 0)
-
-                        // updating index....
-                        currentIndex = index
-                    })
-                    .onChanged({ value in
-                        // updating only index....
-
-                        // Updating Current Index....
-                        let offsetX = value.translation.width
-
-                        // were going to convert the tranlsation into progress (0 - 1)
-                        // and round the value...
-                        // based on the progress increasing or decreasing the currentIndex...
-
-                        let progress = -offsetX / width
-
-                        let roundIndex = progress.rounded()
-
-                        // setting min...
-                        index = max(min(currentIndex + Int(roundIndex), list.count - 1), 0)
-                    })
-            )
+            .highPriorityGesture(dragGesture)
         }
         // Animatiing when offset = 0
         .animation(.easeInOut, value: offset == 0)
