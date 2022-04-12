@@ -38,14 +38,7 @@ struct AltRow: View {
                     Image(systemName: "bubble.left")
                     Text("\(altimage.altNum)")
                 }
-                
-                NavigationLink(destination: CommentView(altImage: altimage)){
-                    Image(altimage.imageName)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 100, height: 100)
-                        .clipped()
-                }
+                ImageView(altimage: altimage, frameWidth: 100, frameHeight: 100, cornerSize: 0)
             }
             HStack {
                 RawImageView(imageName: altimage.imageName)
