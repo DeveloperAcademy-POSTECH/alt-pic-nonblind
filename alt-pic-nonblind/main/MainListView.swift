@@ -9,20 +9,22 @@ import SwiftUI
 
 struct MainListView: View {
     
-//    @State private var altImageNum: Int = altImageSample.count
-    let altImageNum: Int = altImageSample.count
-    
+
+    @State private var maxNumber: Int = 8
     var body: some View {
-            ScrollView {
-                VStack(spacing:30) {
-                    ForEach(0..<7) {
-                        AltRow(altimage: altImageSample[$0])
-                    }
-//                    ForEach(altImageSample, id: \.self) {
-//                        AltRow(altimage: $0)
-//                    }
+        ScrollView {
+            LazyVStack(spacing:30) {
+                ForEach(0...maxNumber, id: \.self) { num in
+                    AltRow(altimage: altImageSample[num % 8])
+                        .onAppear {
+                            if num % 8 == 0 {
+                                maxNumber += 8
+                            }
+                        }
                 }
             }
+        }
+        
     }
 }
 
