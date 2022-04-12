@@ -6,8 +6,28 @@
 //
 
 import SwiftUI
+import KakaoSDKUser
 
 struct Login: View {
+    func onKakaoLoginByAppTouched(_ sender: Any) {
+     // 카카오톡 설치 여부 확인
+      if (UserApi.isKakaoTalkLoginAvailable()) {
+        // 카카오톡 로그인. api 호출 결과를 클로저로 전달.
+        UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+            if let error = error {
+                // 예외 처리 (로그인 취소 등)
+                print(error)
+            }
+            else {
+                print("loginWithKakaoTalk() success.")
+               // do something
+                _ = oauthToken
+               // 어세스토큰
+               let accessToken = oauthToken?.accessToken
+            }
+        }
+      }
+    }
     var body: some View {
         VStack {
             Text("인증하기")
@@ -33,9 +53,11 @@ struct Login: View {
                     .frame(width:250, height:80)
                     .foregroundColor(.yellow)
                     .padding(.bottom,40)
-                Text("카카오톡 로그인")
+                Button("카카오톡 로그인") {
+                    onKakaoLoginByAppTouched((Any).self)
+                }
                     .font(.title2)
-                    .fontWeight(.bold)
+//                    .fontWeight(.bold)
                     .foregroundColor(Color.white)
                     .padding(.bottom,40)
                     .padding(.leading,60)
