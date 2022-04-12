@@ -11,23 +11,6 @@ import KakaoSDKUser
 import KakaoSDKAuth
 
 struct Login: View {
-//    func onKakaoLoginByAppTouched(_ sender: Any) {
-//        // 카카오톡 설치 여부 확인
-//        if (UserApi.isKakaoTalkLoginAvailable()) {
-//            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
-//                if let error = error {
-//                    print(error)
-//                }
-//                else {
-//                    print("loginWithKakaoTalk() success.")
-//
-//                    //do something
-//                    _ = oauthToken
-//                }
-//            }
-//        }
-//    }
-    
     @State private var isLogin: Bool = false
     
     var body: some View {
@@ -37,22 +20,17 @@ struct Login: View {
             .fontWeight(.medium)
             .padding(.bottom, 50)
             
-            ZStack {
-                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Corner Radius@*/10.0/*@END_MENU_TOKEN@*/)
-                    .frame(width:250, height:80)
-                    .foregroundColor(.green)
-                    .padding(.bottom,40)
-                Text("네이버 로그인")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.white)
-                    .padding(.bottom,40)
-                    .padding(.leading,60)
-                    .padding(30)
+            Button {
+                
+            } label: {
+                Image("naverlogin")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding()
             }
             
             if isLogin {
-                Text("로그인 완료되었습니다")
+                Text("카카오 로그인 완료되었습니다")
                 Button {
                     UserApi.shared.logout {(error) in
                         if let error = error {
@@ -64,11 +42,11 @@ struct Login: View {
                         }
                     }
                 } label: {
-                    Text("로그아웃")
+                    Text("카카오 로그아웃")
                 }
             }
             else {
-                Text("로그아웃 완료되었습니다")
+                Text("카카오 로그아웃 완료되었습니다")
             }
             Button {
                 // 카카오톡 설치 여부 확인
@@ -126,18 +104,13 @@ struct Login: View {
                     .padding()
             }
             
-            ZStack {
-                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Corner Radius@*/10.0/*@END_MENU_TOKEN@*/)
-                    .frame(width:250, height:80)
-                    .foregroundColor(.red)
-                    .padding(.bottom,40)
-                Text("구글 로그인")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.white)
-                    .padding(.bottom,40)
-                    .padding(.leading, 60)
-                    .padding(30)
+            Button {
+                
+            } label: {
+                Image("naverlogin")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding()
             }
         }
     }

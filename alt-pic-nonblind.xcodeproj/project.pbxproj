@@ -10,8 +10,6 @@
 		21B7AD6A2803D9AA006A2C5A /* ToastAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7AD692803D9AA006A2C5A /* ToastAlert.swift */; };
 		21B7AD6C2803D9BC006A2C5A /* LimitTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7AD6B2803D9BC006A2C5A /* LimitTextInput.swift */; };
 		21B7AD6E2803D9CB006A2C5A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7AD6D2803D9CB006A2C5A /* ImagePicker.swift */; };
-		21E165B7280420C600D222AC /* MyAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E165B6280420C600D222AC /* MyAppDelegate.swift */; };
-		21E165B92804214300D222AC /* MySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E165B82804214300D222AC /* MySceneDelegate.swift */; };
 		4AD955DD27FEDD9600ABB73D /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD955DA27FEDD9600ABB73D /* CommentView.swift */; };
 		4AD955DE27FEDD9600ABB73D /* originalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD955DB27FEDD9600ABB73D /* originalView.swift */; };
 		DD0165A528030BE400570791 /* BeforeLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0165A428030BE400570791 /* BeforeLogin.swift */; };
@@ -38,8 +36,6 @@
 		21B7AD692803D9AA006A2C5A /* ToastAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastAlert.swift; sourceTree = "<group>"; };
 		21B7AD6B2803D9BC006A2C5A /* LimitTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitTextInput.swift; sourceTree = "<group>"; };
 		21B7AD6D2803D9CB006A2C5A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		21E165B6280420C600D222AC /* MyAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppDelegate.swift; sourceTree = "<group>"; };
-		21E165B82804214300D222AC /* MySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySceneDelegate.swift; sourceTree = "<group>"; };
 		4AD955DA27FEDD9600ABB73D /* CommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		4AD955DB27FEDD9600ABB73D /* originalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = originalView.swift; sourceTree = "<group>"; };
 		674D33743B7BA9C68888259A /* Pods_alt_pic_nonblind.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alt_pic_nonblind.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +74,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		216B8B9A28056CFA007BCCF5 /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+				DD0165A628030E1F00570791 /* Login.swift */,
+				DD0165A428030BE400570791 /* BeforeLogin.swift */,
+				E28B4CE027FFDB840026A544 /* Welcome.swift */,
+				DDD2321F27FE8C3A00B211A9 /* GuidelineView.swift */,
+			);
+			path = Guide;
+			sourceTree = "<group>";
+		};
 		21E4D01327FEAB1B00378FBD /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,11 +127,10 @@
 		E27628A027FC6CD100773D39 = {
 			isa = PBXGroup;
 			children = (
-				21E165B6280420C600D222AC /* MyAppDelegate.swift */,
-				DD0165A628030E1F00570791 /* Login.swift */,
-				DD0165A428030BE400570791 /* BeforeLogin.swift */,
 				E27628DB27FD977200773D39 /* MyPlayground.playground */,
-				21E165B82804214300D222AC /* MySceneDelegate.swift */,
+				E27628AC27FC6CD100773D39 /* alt_pic_nonblindApp.swift */,
+				E28B4CC827FE35460026A544 /* MyWebView.swift */,
+				E27628DC27FD9A6700773D39 /* AltImageData.swift */,
 				E27628AB27FC6CD100773D39 /* alt-pic-nonblind */,
 				E27628AA27FC6CD100773D39 /* Products */,
 				B810A3E7583EF285B34452BE /* Pods */,
@@ -143,15 +149,11 @@
 		E27628AB27FC6CD100773D39 /* alt-pic-nonblind */ = {
 			isa = PBXGroup;
 			children = (
+				216B8B9A28056CFA007BCCF5 /* Guide */,
 				21E4D01327FEAB1B00378FBD /* Profile */,
 				E28B4CCA27FE83300026A544 /* TempView.swift */,
 				E28B4CCE27FE84E70026A544 /* main */,
-				E27628AC27FC6CD100773D39 /* alt_pic_nonblindApp.swift */,
-				E28B4CC827FE35460026A544 /* MyWebView.swift */,
 				4AD955D227FEDD0F00ABB73D /* Comment */,
-				E27628DC27FD9A6700773D39 /* AltImageData.swift */,
-				E28B4CE027FFDB840026A544 /* Welcome.swift */,
-				DDD2321F27FE8C3A00B211A9 /* GuidelineView.swift */,
 				E27628B027FC6CD200773D39 /* Assets.xcassets */,
 				E27628B227FC6CD200773D39 /* Preview Content */,
 			);
@@ -301,7 +303,6 @@
 				21B7AD6C2803D9BC006A2C5A /* LimitTextInput.swift in Sources */,
 				E28B4CD327FECD590026A544 /* UserProfileView.swift in Sources */,
 				E27628DF27FDD65D00773D39 /* MainListView.swift in Sources */,
-				21E165B7280420C600D222AC /* MyAppDelegate.swift in Sources */,
 				E28B4D0B2803A45A0026A544 /* snapCarousel.swift in Sources */,
 				E27628DD27FD9A6700773D39 /* AltImageData.swift in Sources */,
 				DD0165A528030BE400570791 /* BeforeLogin.swift in Sources */,
@@ -310,7 +311,6 @@
 				E28B4CD527FECD590026A544 /* ProfileEditView.swift in Sources */,
 				E28B4CCD27FE83CC0026A544 /* MainCardView.swift in Sources */,
 				21B7AD6E2803D9CB006A2C5A /* ImagePicker.swift in Sources */,
-				21E165B92804214300D222AC /* MySceneDelegate.swift in Sources */,
 				21B7AD6A2803D9AA006A2C5A /* ToastAlert.swift in Sources */,
 				DD0165A728030E1F00570791 /* Login.swift in Sources */,
 			);
