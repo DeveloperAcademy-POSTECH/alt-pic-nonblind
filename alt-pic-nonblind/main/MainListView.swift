@@ -9,14 +9,16 @@ import SwiftUI
 
 struct MainListView: View {
     
+    @Binding var altImageCommentData : [AltImageData]
 //    @State private var altImageNum: Int = altImageSample.count
-    let altImageNum: Int = altImageSample.count
+    
+//    let altImageNum: Int = altImageSample.count
     
     var body: some View {
             ScrollView {
                 VStack(spacing:30) {
                     ForEach(0..<7) {
-                        AltRow(altimage: altImageSample[$0])
+                        AltRow(altimage: altImageCommentData[$0])
                     }
 //                    ForEach(altImageSample, id: \.self) {
 //                        AltRow(altimage: $0)

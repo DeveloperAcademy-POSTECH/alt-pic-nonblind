@@ -7,8 +7,12 @@
 
 import SwiftUI
 
+
+// 사진 + 댓글창 in List
 struct CommentRowView: View {
     
+
+
     // 랜스 데이터와 합치기전 state
     //    @State var CommentDataSample : [CommentData] = [
     //        CommentData(profileImageName: "profile",profileName: "Dake", altText: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다.", isliked: false, likeNum: 1),
@@ -35,7 +39,7 @@ struct CommentRowView: View {
 //    ]
     
     
-    @Binding var CommentDataSample : [CommentData]
+    @Binding var CommentDataSampleOrigin : [CommentData]
     
     
     @State private var showingAlert = false
@@ -49,18 +53,17 @@ struct CommentRowView: View {
                     .resizable()
                     .frame(width:300, height: 400.0)
                 Spacer()
-                
             }
             .listRowSeparator(.hidden)
-            ForEach(CommentDataSample.sorted(by: { $0.like.count > $1.like.count }), id:\.self){ sample in
+            ForEach(CommentDataSampleOrigin.sorted(by: { $0.like.count > $1.like.count }), id:\.self){ sample in
                 commentRow(comment: sample)
                     .listRowSeparator(.hidden)
                     .swipeActions(allowsFullSwipe: false) {
                         HStack {
                             if sample.writer == "Dake"{
                                 Button {
-                                    if let index = CommentDataSample.firstIndex(of: sample){
-                                        CommentDataSample.remove(at: index)
+                                    if let index = CommentDataSampleOrigin.firstIndex(of: sample){
+                                        CommentDataSampleOrigin.remove(at: index)
                                     }
                                     
                                 } label: {

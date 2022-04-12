@@ -9,11 +9,20 @@ import SwiftUI
 import Combine
 
 struct CommentView: View {
+   
     var imageLink = "https://post.naver.com/viewer/postView.naver?volumeNo=21378378&memberNo=15460571&vType=VERTICAL"
-    //
-    //    var altimage : AltImageData
-    //    var imageLink = altimage.imageUrl
+   
     
+    @State var CommentDataSampleOrigin = [
+        CommentData(writer: "Dake", writerProfileIamgeName: "bisil", altText: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다.", isLiked: false, like: ["Hardy","Dany"]),
+        CommentData(writer: "Dany", writerProfileIamgeName: "profileTest", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Hardy","Dake"]),
+        CommentData(writer: "Lance", writerProfileIamgeName: "toong", altText: "굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라", isLiked: false, like: ["Hardy","Dany",]),
+        CommentData(writer: "Hardy", writerProfileIamgeName: "jingu", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Lance","Dake","Monica"]),
+        CommentData(writer: "Monica", writerProfileIamgeName: "dora", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Hardy","Dake","Dake","Dany"])
+    ]
+    
+    @State private var showingAlert = false
+
     var body: some View {
         
         NavigationView() {
@@ -44,36 +53,84 @@ struct CommentView: View {
                     
                 }
                 Divider()
-                commentList()
+                
+                // 어떻게 해야하지..
+//                CommentRowView(CommentDataSampleOrigin: $CommentDataSampleOrigin)
+                List{
+                    HStack {
+                        Spacer()
+                        Image("swim")
+                            .resizable()
+                            .frame(width:300, height: 400.0)
+                        Spacer()
+                    }
+                    .listRowSeparator(.hidden)
+                    ForEach(CommentDataSampleOrigin.sorted(by: { $0.like.count > $1.like.count }), id:\.self){ sample in
+                        commentRow(comment: sample)
+                            .listRowSeparator(.hidden)
+                            .swipeActions(allowsFullSwipe: false) {
+                                HStack {
+                                    if sample.writer == "Dake"{
+                                        Button {
+                                            if let index = CommentDataSampleOrigin.firstIndex(of: sample){
+                                                CommentDataSampleOrigin.remove(at: index)
+                                            }
+                                            
+                                        } label: {
+                                            Label("", systemImage: "trash")
+                                        }.tint(.red)
+                                    } else {
+                                        Button {
+                                            self.showingAlert = true
+                                        } label: {
+                                            Label("", systemImage: "bell.fill")
+                                        }
+                                        .tint(.gray)
+                                    }
+                                }
+                            }
+                            .alert(isPresented: $showingAlert) {
+                                Alert(title: Text("해당 텍스트를 신고하시겠습니까?"), primaryButton: .destructive(Text("신고"), action: {
+                                    // 신고와 관련된 func
+                                }), secondaryButton: .cancel(Text("취소")))
+                            }
+                    }
+                }
+                .listStyle(.plain)
+                TextFieldView(CommentDataSampleOrigin: $CommentDataSampleOrigin)
             }
         }
     }
 }
 
-struct commentList: View{
-    @State var comments: [String] = ["드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다.","열락의 눈에 우리 우리의 있는 우리는 그리하였는가","굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라","굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라","굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라"]
-    @State var nameList : [String] = ["Dake","Dani","Hardy","Lance","Monicaefdfefsdfef"]
-    @State var likeList : [Int] = [18,10,5,4,3]
+
+//  textfield
+struct TextFieldView: View{
+//    @State var comments: [String] = ["드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다.","열락의 눈에 우리 우리의 있는 우리는 그리하였는가","굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라","굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라","굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라"]
+//    @State var nameList : [String] = ["Dake","Dani","Hardy","Lance","Monicaefdfefsdfef"]
+//    @State var likeList : [Int] = [18,10,5,4,3]
+//    @State var isLike = [false,false,false,false,false]
+//
+//
     @State private var givenComment : String = ""
     @State private var showingAlert = false
-    @State var isLike = [false,false,false,false,false]
-    
-    @State var CommentDataSampleOrigin = [
-        CommentData(writer: "Dake", writerProfileIamgeName: "bisil", altText: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다.", isLiked: false, like: ["Hardy","Dany"]),
-        CommentData(writer: "Dany", writerProfileIamgeName: "profileTest", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Hardy","Dake"]),
-        CommentData(writer: "Lance", writerProfileIamgeName: "toong", altText: "굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라", isLiked: false, like: ["Hardy","Dany",]),
-        CommentData(writer: "Hardy", writerProfileIamgeName: "jingu", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Lance","Dake","Monica"]),
-        CommentData(writer: "Monica", writerProfileIamgeName: "dora", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Hardy","Dake","Dake","Dany"])
-    ]
-    
+//    @State var CommentDataSampleOrigin = [
+//        CommentData(writer: "Dake", writerProfileIamgeName: "bisil", altText: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다.", isLiked: false, like: ["Hardy","Dany"]),
+//        CommentData(writer: "Dany", writerProfileIamgeName: "profileTest", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Hardy","Dake"]),
+//        CommentData(writer: "Lance", writerProfileIamgeName: "toong", altText: "굳이 하지 있는 그대만이 청춘의 빛나는 법칙과 마음을 그리는 거기까지가 오고가는 군종 너의 아픔을 간직하리라", isLiked: false, like: ["Hardy","Dany",]),
+//        CommentData(writer: "Hardy", writerProfileIamgeName: "jingu", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Lance","Dake","Monica"]),
+//        CommentData(writer: "Monica", writerProfileIamgeName: "dora", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Hardy","Dake","Dake","Dany"])
+//    ]
+   @Binding var CommentDataSampleOrigin : [CommentData]
     
     @FocusState private var nameIsFocused: Bool
     @FocusState var isInputActive: Bool
     
     let textLimit = 125 //Your limit
+   
     
     var body: some View{
-        CommentRowView(CommentDataSample: $CommentDataSampleOrigin)
+//        CommentRowView(CommentDataSample: $CommentDataSampleOrigin)
         //        List{
         //            HStack {
         //                Spacer()
@@ -214,8 +271,6 @@ struct commentList: View{
 
 struct CommentView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
             CommentView()
-        }
     }
 }
