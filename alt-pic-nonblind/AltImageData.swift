@@ -44,5 +44,7 @@ let altImageSample = [
     AltImageData(imageName: "blueberry", imageUrl: "https://www.naver.com", altNum: 3, comments: [commentsSample[0], commentsSample[1], commentsSample[2]]),
     AltImageData(imageName: "cherry", imageUrl: "https://www.naver.com", altNum: 7, comments: [commentsSample[0], commentsSample[1], commentsSample[2]]),
     AltImageData(imageName: "lemon", imageUrl: "https://www.naver.com", altNum: 3, comments: [commentsSample[0], commentsSample[1], commentsSample[2]]),
-    AltImageData(imageName: "lime", imageUrl: "https://www.naver.com", altNum: 7, comments: [commentsSample[0], commentsSample[1], commentsSample[2]])
+    AltImageData(imageName: "lime", imageUrl: "https://www.naver.com", altNum: 7, comments: [commentsSample[0], commentsSample[1], commentsSample[2]]),
+    AltImageData(imageName: "musinsa", imageUrl: "https://www.naver.com", altNum: 8, comments: [commentsSample[0], commentsSample[1], commentsSample[2]])
+    
 ]
