@@ -6,28 +6,30 @@
 //
 
 import SwiftUI
+import KakaoSDKCommon
 import KakaoSDKUser
+import KakaoSDKAuth
 
 struct Login: View {
-    func onKakaoLoginByAppTouched(_ sender: Any) {
-     // 카카오톡 설치 여부 확인
-      if (UserApi.isKakaoTalkLoginAvailable()) {
-        // 카카오톡 로그인. api 호출 결과를 클로저로 전달.
-        UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
-            if let error = error {
-                // 예외 처리 (로그인 취소 등)
-                print(error)
-            }
-            else {
-                print("loginWithKakaoTalk() success.")
-               // do something
-                _ = oauthToken
-               // 어세스토큰
-               let accessToken = oauthToken?.accessToken
-            }
-        }
-      }
-    }
+//    func onKakaoLoginByAppTouched(_ sender: Any) {
+//        // 카카오톡 설치 여부 확인
+//        if (UserApi.isKakaoTalkLoginAvailable()) {
+//            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+//                if let error = error {
+//                    print(error)
+//                }
+//                else {
+//                    print("loginWithKakaoTalk() success.")
+//
+//                    //do something
+//                    _ = oauthToken
+//                }
+//            }
+//        }
+//    }
+    
+    @State private var isLogin: Bool = false
+    
     var body: some View {
         VStack {
             Text("인증하기")
@@ -48,21 +50,56 @@ struct Login: View {
                     .padding(.leading,60)
                     .padding(30)
             }
-            ZStack {
-                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Corner Radius@*/10.0/*@END_MENU_TOKEN@*/)
-                    .frame(width:250, height:80)
-                    .foregroundColor(.yellow)
-                    .padding(.bottom,40)
-                Button("카카오톡 로그인") {
-                    onKakaoLoginByAppTouched((Any).self)
+            
+            if !isLogin {
+                Text("로그인 완료되었습니다")
+                Button {
+                    
+                } label: {
+                    Text("로그아웃")
                 }
-                    .font(.title2)
-//                    .fontWeight(.bold)
-                    .foregroundColor(Color.white)
-                    .padding(.bottom,40)
-                    .padding(.leading,60)
-                    .padding(30)
             }
+            Button {
+                // 카카오톡 설치 여부 확인
+                if (UserApi.isKakaoTalkLoginAvailable()) {
+                    UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                        if let error = error {
+                            print(error)
+                        }
+                        else {
+                            print("loginWithKakaoTalk() success.")
+
+                            //do something
+                            if (AuthApi.hasToken()) {
+                                UserApi.shared.accessTokenInfo { (_, error) in
+                                    if let error = error {
+                                        if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() == true  {
+                                            //로그인 필요
+                                        }
+                                        else {
+                                            //기타 에러
+                                        }
+                                    }
+                                    else {
+                                        //토큰 유효성 체크 성공(필요 시 토큰 갱신됨)
+                                        kakaoLoginStatus = "카카오 로그인 성공"
+                                    }
+                                }
+                            }
+                            else {
+                                //로그인 필요
+                            }
+                            _ = oauthToken
+                        }
+                    }
+                }
+            } label: {
+                Image("kakao_login_large_narrow")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding()
+            }
+            
             ZStack {
                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Corner Radius@*/10.0/*@END_MENU_TOKEN@*/)
                     .frame(width:250, height:80)

@@ -6,14 +6,23 @@
 //
 
 import SwiftUI
+import KakaoSDKCommon
+import KakaoSDKAuth
 
 @main
 struct alt_pic_nonblindApp: App {
-    @UIApplicationDelegateAdaptor var delegate: MyAppDelegate
+//    @UIApplicationDelegateAdaptor var delegate: MyAppDelegate
+    init() {
+        KakaoSDK.initSDK(appKey: "5eec60357c4996c5c66fb8a00b27b0c6")
+    }
     
     var body: some Scene {
         WindowGroup {
-            Welcome()
+            Welcome().onOpenURL(perform: { url in
+                if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                    AuthController.handleOpenUrl(url: url)
+                }
+            })
         }
     }
 }
