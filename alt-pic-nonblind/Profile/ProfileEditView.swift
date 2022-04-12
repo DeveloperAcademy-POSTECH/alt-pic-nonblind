@@ -93,16 +93,16 @@ struct ProfileEditView: View {
             */
             VStack {
                 HStack {
-                    TextField(nickname, text: $currentName)
-                        .limitInputLength(value: $currentName, length: 20)     // 닉네임 길이 제한
-                        .onChange(of: currentName) { newValue in
-                            if allNames.contains(currentName) {
+                    TextField(nickname, text: $nickname)
+                        .limitInputLength(value: $nickname, length: 20)     // 닉네임 길이 제한
+                        .onChange(of: nickname) { newValue in
+                            if allNames.contains(nickname) {
                                 showToast = true
-                                nickname = String(currentName.prefix(upTo: currentName.index(before: currentName.endIndex)))
+//                                nickname = String(currentName.prefix(upTo: currentName.index(before: currentName.endIndex)))
                             }
-                            else {
-                                nickname = currentName
-                            }
+//                            else {
+//                                nickname = currentName
+//                            }
                         }
                         .font(.system(size: 20))
                         .focused($isInputActive)

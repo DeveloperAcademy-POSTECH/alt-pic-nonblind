@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct alt_pic_nonblindApp: App {
+    @UIApplicationDelegateAdaptor var delegate: MyAppDelegate
+    
     var body: some Scene {
         WindowGroup {
-            MainView()
+            Welcome()
         }
     }
 }
