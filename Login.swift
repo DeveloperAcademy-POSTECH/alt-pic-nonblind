@@ -51,13 +51,24 @@ struct Login: View {
                     .padding(30)
             }
             
-            if !isLogin {
+            if isLogin {
                 Text("로그인 완료되었습니다")
                 Button {
-                    
+                    UserApi.shared.logout {(error) in
+                        if let error = error {
+                            print(error)
+                        }
+                        else {
+                            print("logout() success.")
+                            isLogin = false
+                        }
+                    }
                 } label: {
                     Text("로그아웃")
                 }
+            }
+            else {
+                Text("로그아웃 완료되었습니다")
             }
             Button {
                 // 카카오톡 설치 여부 확인
@@ -69,7 +80,7 @@ struct Login: View {
                         else {
                             print("loginWithKakaoTalk() success.")
 
-                            //do something
+//                            //do something
                             if (AuthApi.hasToken()) {
                                 UserApi.shared.accessTokenInfo { (_, error) in
                                     if let error = error {
@@ -82,7 +93,7 @@ struct Login: View {
                                     }
                                     else {
                                         //토큰 유효성 체크 성공(필요 시 토큰 갱신됨)
-                                        kakaoLoginStatus = "카카오 로그인 성공"
+                                        isLogin = true
                                     }
                                 }
                             }
@@ -90,6 +101,21 @@ struct Login: View {
                                 //로그인 필요
                             }
                             _ = oauthToken
+//                            UserApi.shared.me() {(user, error) in
+//                                if let error = error {
+//                                    print(error)
+//                                }
+//                                else {
+//                                    print("me() success.")
+//
+//                                    //do something
+////                                    _ = user
+//
+//                                    // 여기서 우리 서비스 가입 되어 있는지 체크
+//                                    let checkuser = user?.id
+//                                    print(checkuser)
+//                                }
+//                            }
                         }
                     }
                 }
