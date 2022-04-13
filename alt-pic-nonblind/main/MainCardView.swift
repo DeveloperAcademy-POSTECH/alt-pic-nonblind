@@ -22,7 +22,13 @@ struct MainCardView: View {
                             Image(systemName: "bubble.left")
                             Text("\(altimage.altNum)")
                         }
-                        ImageView(altImageCommentElement: $altImageCommentData[currentIndex], frameWidth: size.width, frameHeight: 400, cornerSize: 12)
+                        
+                        ImageView(altImageCommentElement: $altImageCommentData[currentIndex],altimage: altimage, frameWidth: size.width, frameHeight: 400, cornerSize: 12)
+//                        Image(altimage.imageName)
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fill)
+//                            .frame(width: size.width)
+//                            .cornerRadius(12)
                     }
                 }
             }

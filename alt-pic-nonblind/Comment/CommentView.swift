@@ -25,34 +25,7 @@ struct CommentView: View {
         
         
         VStack{
-            //                HStack() {
-            //
-            //                    Spacer()
-            //                    NavigationLink(destination:originalView(altImageCommentElement: $altImageCommentElement)){
-            //                        Text("원본확인")
-            //                    }
-            //                    .frame(width:70)
-            //                    .padding().background(.black)
-            //                    .cornerRadius(10).foregroundColor(.white)
-            //                    .navigationBarTitle("")
-            //                    .navigationBarBackButtonHidden(false)
-            //
-            //
-            //                    Spacer()
-            //                        .frame(width:30)
-            //
-            //                    NavigationLink(destination: MyWebView(urlToLoad: altImageCommentElement.imageUrl)){
-            //                        Text("링크이동")
-            //                    }
-            //                    .frame(width:70)
-            //                    .padding().background(.black).cornerRadius(10).foregroundColor(.white)
-            //                    Spacer()
-            //
-            //                }
             Divider()
-            
-            // 어떻게 해야하지..
-            //                CommentRowView(CommentDataSampleOrigin: $CommentDataSampleOrigin)
             List{
                 HStack {
                     Spacer()
