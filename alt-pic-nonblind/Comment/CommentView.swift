@@ -58,6 +58,7 @@ struct CommentView: View {
                     Spacer()
                     Image(altImageCommentElement.imageName)
                         .resizable()
+                        .scaledToFit()
                         .frame(width:300, height: 400.0)
                     Spacer()
                 }
