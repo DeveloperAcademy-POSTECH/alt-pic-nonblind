@@ -17,7 +17,7 @@ struct MainView: View {
             AltImageData(imageName: "cherry", imageUrl: "https://www.naver.com", altNum: 7,imageComments: CommentDataSample),
             AltImageData(imageName: "lemon", imageUrl: "https://www.naver.com", altNum: 3,imageComments: CommentDataSample),
             AltImageData(imageName: "lime", imageUrl: "https://www.naver.com", altNum: 7,imageComments: CommentDataSample),
-            AltImageData(imageName: "lime", imageUrl: "https://www.naver.com", altNum: 10,imageComments: CommentDataSample)
+            AltImageData(imageName: "musinsa", imageUrl: "https://www.naver.com", altNum: 10,imageComments: CommentDataSample)
         ]
     
     var body: some View {

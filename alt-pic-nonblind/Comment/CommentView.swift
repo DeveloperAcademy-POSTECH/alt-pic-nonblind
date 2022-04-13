@@ -22,89 +22,117 @@ struct CommentView: View {
     
     var body: some View {
         
-   
+        
+        
+        VStack{
+            //                HStack() {
+            //
+            //                    Spacer()
+            //                    NavigationLink(destination:originalView(altImageCommentElement: $altImageCommentElement)){
+            //                        Text("원본확인")
+            //                    }
+            //                    .frame(width:70)
+            //                    .padding().background(.black)
+            //                    .cornerRadius(10).foregroundColor(.white)
+            //                    .navigationBarTitle("")
+            //                    .navigationBarBackButtonHidden(false)
+            //
+            //
+            //                    Spacer()
+            //                        .frame(width:30)
+            //
+            //                    NavigationLink(destination: MyWebView(urlToLoad: altImageCommentElement.imageUrl)){
+            //                        Text("링크이동")
+            //                    }
+            //                    .frame(width:70)
+            //                    .padding().background(.black).cornerRadius(10).foregroundColor(.white)
+            //                    Spacer()
+            //
+            //                }
+            Divider()
             
-            VStack{
-                HStack() {
-                    
+            // 어떻게 해야하지..
+            //                CommentRowView(CommentDataSampleOrigin: $CommentDataSampleOrigin)
+            List{
+                HStack {
                     Spacer()
-                    NavigationLink(destination:originalView(altImageCommentElement: $altImageCommentElement)){
-                        Text("원본확인")
-                    }
-                    .frame(width:70)
-                    .padding().background(.black)
-                    .cornerRadius(10).foregroundColor(.white)
-                    .navigationBarTitle("")
-                    .navigationBarBackButtonHidden(false)
-                    
-                    
+                    Image(altImageCommentElement.imageName)
+                        .resizable()
+                        .frame(width:300, height: 400.0)
                     Spacer()
-                        .frame(width:30)
-                    
-                    NavigationLink(destination: MyWebView(urlToLoad: altImageCommentElement.imageUrl)){
-                        Text("링크이동")
-                    }
-                    .frame(width:70)
-                    .padding().background(.black).cornerRadius(10).foregroundColor(.white)
-                    Spacer()
-                    
                 }
-                Divider()
-                
-                // 어떻게 해야하지..
-                //                CommentRowView(CommentDataSampleOrigin: $CommentDataSampleOrigin)
-                List{
-                    HStack {
-                        Spacer()
-                        Image(altImageCommentElement.imageName)
-                            .resizable()
-                            .frame(width:300, height: 400.0)
-                        Spacer()
-                    }
-                    .listRowSeparator(.hidden)
-                    ForEach(altImageCommentElement.imageComments.sorted(by: { $0.like.count > $1.like.count }), id:\.self){ sample in
-                        commentRow(comment: sample)
-                            .listRowSeparator(.hidden)
-                            .swipeActions(allowsFullSwipe: false) {
-                                HStack {
-                                    if sample.writer == "Dake"{
-                                        Button {
-                                            if let index = altImageCommentElement.imageComments.firstIndex(of: sample){
-                                                altImageCommentElement.imageComments.remove(at: index)
-                                            }
-                                            
-                                        } label: {
-                                            Label("", systemImage: "trash")
-                                        }.tint(.red)
-                                    } else {
-                                        Button {
-                                            self.showingAlert = true
-                                        } label: {
-                                            Label("", systemImage: "bell.fill")
+                .listRowSeparator(.hidden)
+                ForEach(altImageCommentElement.imageComments.sorted(by: { $0.like.count > $1.like.count }), id:\.self){ sample in
+                    commentRow(comment: sample)
+                        .listRowSeparator(.hidden)
+                        .swipeActions(allowsFullSwipe: false) {
+                            HStack {
+                                if sample.writer == "Dake"{
+                                    Button {
+                                        if let index = altImageCommentElement.imageComments.firstIndex(of: sample){
+                                            altImageCommentElement.imageComments.remove(at: index)
                                         }
-                                        .tint(.gray)
+                                        
+                                    } label: {
+                                        Label("", systemImage: "trash")
+                                    }.tint(.red)
+                                } else {
+                                    Button {
+                                        self.showingAlert = true
+                                    } label: {
+                                        Label("", systemImage: "bell.fill")
                                     }
+                                    .tint(.gray)
                                 }
                             }
-                            .alert(isPresented: $showingAlert) {
-                                Alert(title: Text("해당 텍스트를 신고하시겠습니까?"), primaryButton: .destructive(Text("신고"), action: {
-                                    // 신고와 관련된 func
-                                }), secondaryButton: .cancel(Text("취소")))
-                            }
-                    }
+                        }
+                        .alert(isPresented: $showingAlert) {
+                            Alert(title: Text("해당 텍스트를 신고하시겠습니까?"), primaryButton: .destructive(Text("신고"), action: {
+                                // 신고와 관련된 func
+                            }), secondaryButton: .cancel(Text("취소")))
+                        }
                 }
-                .listStyle(.plain)
-                TextFieldView(CommentDataSampleOrigin: $altImageCommentElement.imageComments)
             }
-
+            .listStyle(.plain)
+            TextFieldView(CommentDataSampleOrigin: $altImageCommentElement.imageComments)
+        }
+        .navigationBarItems(leading: originalButton)
     }
 }
+
+private extension CommentView {
+    
+    var originalButton: some View {
+        HStack{
+            Spacer()
+                .frame(width:20)
+            NavigationLink(destination:originalView(altImageCommentElement: $altImageCommentElement)){
+                Text("원본확인")
+            }
+            .frame(width:110)
+            .padding(5)
+            .background(.black)
+            .cornerRadius(10).foregroundColor(.white)
+            .navigationBarTitle("")
+            .navigationBarBackButtonHidden(false)
+            
+            NavigationLink(destination: MyWebView(urlToLoad: altImageCommentElement.imageUrl)){
+                Text("링크이동")
+            }
+            .frame(width:110)
+            .padding(5).background(.black)
+            .cornerRadius(10).foregroundColor(.white)
+        }
+    }
+}
+
+
 
 // 사진 + 댓글창 in List
 struct CommentRowView: View {
     
     @State private var showingAlert = false
-        
+    
     @Binding var altImageCommentElementComment : [CommentData]
     
     var body: some View {
@@ -272,6 +300,7 @@ struct TextFieldView: View{
         }
     }
 }
+
 
 
 
