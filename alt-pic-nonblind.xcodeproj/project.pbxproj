@@ -28,6 +28,11 @@
 		E28B4CD527FECD590026A544 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B4CD227FECD590026A544 /* ProfileEditView.swift */; };
 		E28B4CE127FFDB840026A544 /* Welcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B4CE027FFDB840026A544 /* Welcome.swift */; };
 		E28B4D0B2803A45A0026A544 /* snapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B4D0A2803A45A0026A544 /* snapCarousel.swift */; };
+		E293938B2806408000984EC0 /* SuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29393862806408000984EC0 /* SuggestionView.swift */; };
+		E293938C2806408000984EC0 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29393872806408000984EC0 /* NoticeView.swift */; };
+		E293938D2806408000984EC0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29393882806408000984EC0 /* HomeView.swift */; };
+		E293938E2806408000984EC0 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29393892806408000984EC0 /* LinkView.swift */; };
+		E293938F2806408000984EC0 /* CompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E293938A2806408000984EC0 /* CompleteView.swift */; };
 		E616DF22028A1461F53AA619 /* Pods_alt_pic_nonblind.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674D33743B7BA9C68888259A /* Pods_alt_pic_nonblind.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +61,11 @@
 		E28B4CD227FECD590026A544 /* ProfileEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		E28B4CE027FFDB840026A544 /* Welcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome.swift; sourceTree = "<group>"; };
 		E28B4D0A2803A45A0026A544 /* snapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = snapCarousel.swift; sourceTree = "<group>"; };
+		E29393862806408000984EC0 /* SuggestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionView.swift; sourceTree = "<group>"; };
+		E29393872806408000984EC0 /* NoticeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
+		E29393882806408000984EC0 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E29393892806408000984EC0 /* LinkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
+		E293938A2806408000984EC0 /* CompleteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteView.swift; sourceTree = "<group>"; };
 		E4EBD31094694AA5E1608922 /* Pods-alt-pic-nonblind.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alt-pic-nonblind.release.xcconfig"; path = "Target Support Files/Pods-alt-pic-nonblind/Pods-alt-pic-nonblind.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +169,7 @@
 		E27628AB27FC6CD100773D39 /* alt-pic-nonblind */ = {
 			isa = PBXGroup;
 			children = (
+				E29393852806406500984EC0 /* blind */,
 				216B8B9C28056EAF007BCCF5 /* Data */,
 				216B8B9B28056E8B007BCCF5 /* Common */,
 				216B8B9A28056CFA007BCCF5 /* Guide */,
@@ -188,6 +199,18 @@
 				E28B4D0A2803A45A0026A544 /* snapCarousel.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		E29393852806406500984EC0 /* blind */ = {
+			isa = PBXGroup;
+			children = (
+				E293938A2806408000984EC0 /* CompleteView.swift */,
+				E29393882806408000984EC0 /* HomeView.swift */,
+				E29393892806408000984EC0 /* LinkView.swift */,
+				E29393872806408000984EC0 /* NoticeView.swift */,
+				E29393862806408000984EC0 /* SuggestionView.swift */,
+			);
+			path = blind;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,19 +327,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E293938E2806408000984EC0 /* LinkView.swift in Sources */,
 				4AD955DE27FEDD9600ABB73D /* originalView.swift in Sources */,
 				4AD955DD27FEDD9600ABB73D /* CommentView.swift in Sources */,
 				E28B4CC927FE35460026A544 /* MyWebView.swift in Sources */,
 				DDD2322027FE8C3A00B211A9 /* GuidelineView.swift in Sources */,
 				E27628AD27FC6CD100773D39 /* alt_pic_nonblindApp.swift in Sources */,
+				E293938D2806408000984EC0 /* HomeView.swift in Sources */,
 				E28B4CE127FFDB840026A544 /* Welcome.swift in Sources */,
+				E293938C2806408000984EC0 /* NoticeView.swift in Sources */,
 				21B7AD6C2803D9BC006A2C5A /* LimitTextInput.swift in Sources */,
 				E28B4CD327FECD590026A544 /* UserProfileView.swift in Sources */,
 				E27628DF27FDD65D00773D39 /* MainListView.swift in Sources */,
 				E28B4D0B2803A45A0026A544 /* snapCarousel.swift in Sources */,
+				E293938B2806408000984EC0 /* SuggestionView.swift in Sources */,
 				E27628DD27FD9A6700773D39 /* AltImageData.swift in Sources */,
 				DD0165A528030BE400570791 /* BeforeLogin.swift in Sources */,
 				E28B4CD427FECD590026A544 /* BadgesView.swift in Sources */,
+				E293938F2806408000984EC0 /* CompleteView.swift in Sources */,
 				E28B4CC727FE23D70026A544 /* MainView.swift in Sources */,
 				E28B4CD527FECD590026A544 /* ProfileEditView.swift in Sources */,
 				E28B4CCD27FE83CC0026A544 /* MainCardView.swift in Sources */,
