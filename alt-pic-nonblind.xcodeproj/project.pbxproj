@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		102F2E582807128C002B2E4C /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102F2E572807128C002B2E4C /* TestView.swift */; };
 		1041824E2806CD6000F8D499 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 104182502806CD6000F8D499 /* Localizable.strings */; };
 		21B7AD6A2803D9AA006A2C5A /* ToastAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7AD692803D9AA006A2C5A /* ToastAlert.swift */; };
 		21B7AD6C2803D9BC006A2C5A /* LimitTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7AD6B2803D9BC006A2C5A /* LimitTextInput.swift */; };
@@ -39,7 +38,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		102F2E572807128C002B2E4C /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		1041824F2806CD6000F8D499 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		104182512806CDBA00F8D499 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		21B7AD692803D9AA006A2C5A /* ToastAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastAlert.swift; sourceTree = "<group>"; };
@@ -166,6 +164,7 @@
 		E27628AB27FC6CD100773D39 /* alt-pic-nonblind */ = {
 			isa = PBXGroup;
 			children = (
+				104182502806CD6000F8D499 /* Localizable.strings */,
 				E29393852806406500984EC0 /* blind */,
 				216B8B9C28056EAF007BCCF5 /* Data */,
 				216B8B9B28056E8B007BCCF5 /* Common */,
@@ -201,13 +200,11 @@
 		E29393852806406500984EC0 /* blind */ = {
 			isa = PBXGroup;
 			children = (
-				102F2E572807128C002B2E4C /* TestView.swift */,
 				E293938A2806408000984EC0 /* CompleteView.swift */,
 				E29393882806408000984EC0 /* BlindMainView.swift */,
 				E29393892806408000984EC0 /* LinkView.swift */,
 				E29393872806408000984EC0 /* NoticeView.swift */,
 				E29393862806408000984EC0 /* SuggestionView.swift */,
-				104182502806CD6000F8D499 /* Localizable.strings */,
 			);
 			path = blind;
 			sourceTree = "<group>";
@@ -337,7 +334,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E293938E2806408000984EC0 /* LinkView.swift in Sources */,
-				102F2E582807128C002B2E4C /* TestView.swift in Sources */,
 				4AD955DE27FEDD9600ABB73D /* originalView.swift in Sources */,
 				4AD955DD27FEDD9600ABB73D /* CommentView.swift in Sources */,
 				E28B4CC927FE35460026A544 /* MyWebView.swift in Sources */,

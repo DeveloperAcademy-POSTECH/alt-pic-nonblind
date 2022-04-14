@@ -76,7 +76,7 @@ struct BlindMainView: View {
                         
             }
             .padding(.top, 10.0)
-        }
+        }.accentColor(.black)
             }
     
 }
