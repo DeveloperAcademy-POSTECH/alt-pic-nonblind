@@ -78,24 +78,28 @@ private extension CommentView {
     
     var originalButton: some View {
         HStack{
-            Spacer()
-                .frame(width:20)
+//            Spacer()
+//                .frame(width:3)
             NavigationLink(destination:originalView(altImageCommentElement: $altImageCommentElement)){
                 Text("원본확인")
+                    .font(Font.system(size:15, design: .default))
+                    .frame(width:128)
+                    .padding(4)
+                    .background(.black)
+                    .cornerRadius(10).foregroundColor(.white)
             }
-            .frame(width:110)
-            .padding(5)
-            .background(.black)
-            .cornerRadius(10).foregroundColor(.white)
+            
             .navigationBarTitle("")
             .navigationBarBackButtonHidden(false)
             
             NavigationLink(destination: MyWebView(urlToLoad: altImageCommentElement.imageUrl)){
                 Text("링크이동")
+                    .font(Font.system(size:15, design: .default))
+                    .frame(width:128)
+                    .padding(4).background(.black)
+                    .cornerRadius(10).foregroundColor(.white)
             }
-            .frame(width:110)
-            .padding(5).background(.black)
-            .cornerRadius(10).foregroundColor(.white)
+            
         }
     }
 }
@@ -243,6 +247,7 @@ struct TextFieldView: View{
                 givenComment = ""
             }){Image(systemName: "paperplane.fill")}
                 .background(.white)
+                .foregroundColor(.black)
             
         }
     }
