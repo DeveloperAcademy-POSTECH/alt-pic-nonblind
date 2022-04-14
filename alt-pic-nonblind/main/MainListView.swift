@@ -23,7 +23,7 @@ struct MainListView: View {
                             }
                         }
                 }
-            }
+            }.padding(.top, 20)
         }
         
     }
