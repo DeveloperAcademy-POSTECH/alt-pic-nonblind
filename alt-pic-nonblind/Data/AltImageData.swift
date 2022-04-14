@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 struct AltImageData: Identifiable{
     let id = UUID().uuidString
     let imageName: String // 이미지 이름
@@ -38,6 +36,12 @@ var CommentDataSample = [
     CommentData(writer: "Hardy", writerProfileIamgeName: "jingu", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Lance","Dake","Monica"]),
     CommentData(writer: "Monica", writerProfileIamgeName: "dora", altText: "열락의 눈에 우리 우리의 있는 우리는 그리하였는가", isLiked: false, like: ["Hardy","Dake","Dake","Dany"])
 ]
+
+var CommentDataPresentationSample = [
+    CommentData(writer: "Monica", writerProfileIamgeName: "jingu", altText: "남자와 여자가 있다.", isLiked: false, like: ["Hardy","Dake"]),
+    CommentData(writer: "Hardy", writerProfileIamgeName: "toong", altText: "멋쩍은 표정을 지은 남자가 앉아있다.", isLiked: false, like: ["Hardy","Dany",])
+]
+
 
 //수정전 데이터
 //var altImageSample = [

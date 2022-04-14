@@ -11,6 +11,8 @@ struct MainView: View {
     @State private var isCardView = false
     @State var altImageCommentData : [AltImageData] = [
             AltImageData(imageName: "apple", imageUrl: "https://www.naver.com", altNum: 5,imageComments: CommentDataSample),
+            AltImageData(imageName: "paa1", imageUrl: "https://developeracademy.postech.ac.kr/ko/", altNum: 5,imageComments: CommentDataPresentationSample),
+            AltImageData(imageName: "paa2", imageUrl: "https://developeracademy.postech.ac.kr/ko/", altNum: 5,imageComments: CommentDataSample),
             AltImageData(imageName: "avocado", imageUrl: "https://www.google.com", altNum: 20,imageComments: CommentDataSample),
             AltImageData(imageName: "banana", imageUrl: "https://www.naver.com", altNum: 21,imageComments: CommentDataSample),
             AltImageData(imageName: "blueberry", imageUrl: "https://www.naver.com", altNum: 3,imageComments: CommentDataSample),
@@ -43,7 +45,11 @@ private extension MainView {
     var switchViewButton: some View {
         Button(action: {switchMainView()}){
                 Text("\(isCardView ? "목록형" : "카드형")")
-                    .padding()
+                .padding(.vertical, 10)
+                .padding(.horizontal,20)
+                    .foregroundColor(.white)
+                    .background(.black)
+                    .cornerRadius(10)
             }
     }
     var profileImage: some View {
