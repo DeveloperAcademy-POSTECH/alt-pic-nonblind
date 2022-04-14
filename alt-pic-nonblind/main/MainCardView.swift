@@ -23,21 +23,18 @@ struct MainCardView: View {
                             Text("\(altimage.altNum)")
                         }
                         
-                        ImageView(altImageCommentElement: $altImageCommentData[currentIndex],altimage: altimage, frameWidth: size.width, frameHeight: 400, cornerSize: 12)
-//                        Image(altimage.imageName)
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fill)
-//                            .frame(width: size.width)
-//                            .cornerRadius(12)
+                        ImageView(altImageCommentElement: $altImageCommentData[currentIndex],altimage: altimage, frameWidth: size.width, frameHeight: 450, cornerSize: 0)
                     }
                 }
             }
-            .padding(.vertical,40)
+            .padding(.top, 70)
+            .frame(height: 550)
             
             HStack {
                 RawImageView(altImageCommentElement: $altImageCommentData[currentIndex])
                 WebView(imageUrl: altImageCommentData[currentIndex].imageUrl)
             }
+            Spacer()
         }
     }
 }

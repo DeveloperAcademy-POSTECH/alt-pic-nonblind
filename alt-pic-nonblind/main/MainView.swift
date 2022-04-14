@@ -31,6 +31,7 @@ struct MainView: View {
             }
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(leading: profileImage, trailing: switchViewButton)
+            .accentColor(.black)
         }
     }
 }
