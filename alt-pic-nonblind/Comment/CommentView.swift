@@ -81,7 +81,7 @@ private extension CommentView {
 //            Spacer()
 //                .frame(width:3)
             NavigationLink(destination:originalView(altImageCommentElement: $altImageCommentElement)){
-                Text("원본확인")
+                Text("원본 확인")
                     .font(Font.system(size:15, design: .default))
                     .frame(width:128)
                     .padding(4)
@@ -93,7 +93,7 @@ private extension CommentView {
             .navigationBarBackButtonHidden(false)
             
             NavigationLink(destination: MyWebView(urlToLoad: altImageCommentElement.imageUrl)){
-                Text("링크이동")
+                Text("링크 이동")
                     .font(Font.system(size:15, design: .default))
                     .frame(width:128)
                     .padding(4).background(.black)

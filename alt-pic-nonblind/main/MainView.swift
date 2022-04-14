@@ -33,8 +33,7 @@ struct MainView: View {
             }
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(leading: profileImage, trailing: switchViewButton)
-            .accentColor(.black)
-        }
+        }.accentColor(.black)
     }
 }
 
@@ -92,7 +91,9 @@ struct RawImageView: View {
     var body: some View {
         NavigationLink(destination: originalView(altImageCommentElement: $altImageCommentElement)){
             Text("원본 확인")
-                .padding()
+                .font(.system(size: 13))
+                .padding(EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20))
+                .frame(width: 100, height: 30)
                 .background(RoundedRectangle(cornerRadius: 10).strokeBorder())
         }
     }
@@ -104,7 +105,9 @@ struct WebView: View {
     var body: some View {
         NavigationLink(destination: MyWebView(urlToLoad: imageUrl)){
             Text("링크 확인")
-                .padding()
+                .font(.system(size: 13))
+                .padding(EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20))
+                .frame(width: 100, height: 30)
                 .background(RoundedRectangle(cornerRadius: 10).strokeBorder())
         }
     }

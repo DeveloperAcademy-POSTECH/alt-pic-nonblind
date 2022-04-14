@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  BindMainView.swift
 //  alt-pic-blind
 //
 //  Created by 김연호 on 2022/04/05.
@@ -21,9 +21,12 @@ struct blind_Values {
     var timedata :[String] = []
     //대체텍스트 반영이 완료 되었을때 알림이 보이거나 시간이 지난 후 보이지 않게 하기위한 변수
     var alt_pic_finish : Bool = false
+    
+    
 }
 
-struct ContentView: View {
+struct BlindMainView: View {
+     
     //각 네비게이션링크 마다 변수 설정을 다르게 해줘야 오류가 생기지않음
     @State var isActive_LinkView : Bool = false
     @State var isActive_SugView : Bool = false
@@ -37,6 +40,7 @@ struct ContentView: View {
                     Text("안녕하세요,").font(.system(size: 35))
                         .fontWeight(.bold)
                         .padding(.bottom, -15.0)
+                        
                     
                     Text("듣는사진 메인화면입니다.").font(.system(size:35))
                         .fontWeight(.bold)
@@ -72,15 +76,13 @@ struct ContentView: View {
                         
             }
             .padding(.top, 10.0)
-        }
+        }.accentColor(.black)
             }
     
 }
 
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        BlindMainView()
     }
 }

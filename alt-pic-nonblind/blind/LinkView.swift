@@ -33,7 +33,8 @@ struct LinkView: View {
                     HStack{
                         Spacer().frame(width: 40)
                         
-                        TextField("", text: $linkViewValue.linkValue).frame(width:325).background(Color(white:0.87)).focused($isInputActive)
+                        TextField("", text: $linkViewValue.linkValue).frame(width:325).background(Color(white:0.87))
+                            .focused($isInputActive)
                             .toolbar {
                             ToolbarItemGroup(placement: .keyboard){
                                 Spacer()
@@ -68,11 +69,9 @@ struct LinkView: View {
                             linkViewValue.timedata.append(createFormatter(dateValue: Date()));
                             linkViewValue.arr_linkValue.append(linkViewValue.linkValue);
                             linkViewValue.arr_add_linkValues.append(linkViewValue.add_linkValue)
-                            print("-----------")
-                            print(linkViewValue.arr_linkValue[0])
-                            print("-----------")
-                            print(linkViewValue.arr_add_linkValues[0])
-                        })
+                            print("------")
+                            print("working")
+                    })
                 Spacer().frame(height: 100)
                 }
 

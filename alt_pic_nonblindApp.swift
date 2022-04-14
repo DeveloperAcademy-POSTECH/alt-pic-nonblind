@@ -18,7 +18,8 @@ struct alt_pic_nonblindApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView()
+//            BlindMainView()
+             MainView()
 //            Welcome().onOpenURL(perform: { url in
 //                if (AuthApi.isKakaoTalkLoginUrl(url)) {
 //                    AuthController.handleOpenUrl(url: url)
