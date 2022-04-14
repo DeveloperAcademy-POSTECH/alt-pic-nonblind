@@ -31,8 +31,8 @@ struct MainCardView: View {
             .frame(height: 550)
             
             HStack {
-                RawImageView(altImageCommentElement: $altImageCommentData[currentIndex])
-                WebView(imageUrl: altImageCommentData[currentIndex].imageUrl)
+                RawImageView(altImageCommentElement: $altImageCommentData[currentIndex],frameWidth: 150, frmaeHeight: 40,fontSize: 17)
+                WebView(imageUrl: altImageCommentData[currentIndex].imageUrl, frameWidth: 150, frmaeHeight: 40,fontSize: 17)
             }
             Spacer()
         }

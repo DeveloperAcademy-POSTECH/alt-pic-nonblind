@@ -87,13 +87,16 @@ struct ImageView: View {
 struct RawImageView: View {
 
     @Binding var altImageCommentElement : AltImageData
+    let frameWidth: CGFloat
+    let frmaeHeight: CGFloat
+    let fontSize: CGFloat
     
     var body: some View {
         NavigationLink(destination: originalView(altImageCommentElement: $altImageCommentElement)){
             Text("원본 확인")
-                .font(.system(size: 13))
+                .font(.system(size: fontSize))
                 .padding(EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20))
-                .frame(width: 100, height: 30)
+                .frame(width: frameWidth, height: frmaeHeight)
                 .background(RoundedRectangle(cornerRadius: 10).strokeBorder())
         }
     }
@@ -101,13 +104,16 @@ struct RawImageView: View {
 
 struct WebView: View {
     let imageUrl: String
+    let frameWidth: CGFloat
+    let frmaeHeight: CGFloat
+    let fontSize: CGFloat
     
     var body: some View {
         NavigationLink(destination: MyWebView(urlToLoad: imageUrl)){
             Text("링크 확인")
-                .font(.system(size: 13))
+                .font(.system(size: fontSize))
                 .padding(EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20))
-                .frame(width: 100, height: 30)
+                .frame(width: frameWidth, height: frmaeHeight)
                 .background(RoundedRectangle(cornerRadius: 10).strokeBorder())
         }
     }

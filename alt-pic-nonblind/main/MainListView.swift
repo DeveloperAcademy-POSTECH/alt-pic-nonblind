@@ -43,8 +43,8 @@ struct AltRow: View {
                 ImageView(altImageCommentElement: $altImageCommentElement, altimage: altImageCommentElement, frameWidth: 100, frameHeight: 100, cornerSize: 0)
             }
             HStack {
-                RawImageView(altImageCommentElement: $altImageCommentElement)
-                WebView(imageUrl: altImageCommentElement.imageUrl)
+                RawImageView(altImageCommentElement: $altImageCommentElement,frameWidth: 100, frmaeHeight: 30,fontSize: 13)
+                WebView(imageUrl: altImageCommentElement.imageUrl,frameWidth: 100, frmaeHeight: 30,fontSize: 13)
             }
         }
         .frame(height: 110)
