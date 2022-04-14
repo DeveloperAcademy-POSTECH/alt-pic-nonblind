@@ -61,15 +61,15 @@ var CommentDataSample = [
 //    CommentData(writer: "leo", like: ["hardy", "dani"], comment: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다."),
 //    CommentData(writer: "judy", like: ["hardy", "dani"], comment: "드넓은 호수를 향해 뻗은 손이 하얀색 컵을 쥐고 있다.")
 //]
-//
+
 //let altImageSample = [
-//    AltImageData(imageName: "apple", imageUrl: "https://www.naver.com", altNum: 5, comments: [commentsSample[0], commentsSample[1], commentsSample[2]]),
-//    AltImageData(imageName: "avocado", imageUrl: "https://www.google.com", altNum: 20, comments: [commentsSample[3], commentsSample[4], commentsSample[5]]),
-//    AltImageData(imageName: "banana", imageUrl: "https://www.naver.com", altNum: 21, comments: [commentsSample[0], commentsSample[1], commentsSample[2]]),
-//    AltImageData(imageName: "blueberry", imageUrl: "https://www.naver.com", altNum: 3, comments: [commentsSample[0], commentsSample[1], commentsSample[2]]),
-//    AltImageData(imageName: "cherry", imageUrl: "https://www.naver.com", altNum: 7, comments: [commentsSample[0], commentsSample[1], commentsSample[2]]),
-//    AltImageData(imageName: "lemon", imageUrl: "https://www.naver.com", altNum: 3, comments: [commentsSample[0], commentsSample[1], commentsSample[2]]),
-//    AltImageData(imageName: "lime", imageUrl: "https://www.naver.com", altNum: 7, comments: [commentsSample[0], commentsSample[1], commentsSample[2]]),
-//    AltImageData(imageName: "musinsa", imageUrl: "https://www.naver.com", altNum: 8, comments: [commentsSample[0], commentsSample[1], commentsSample[2]])
+//    AltImageData(imageName: "apple", imageUrl: "https://www.naver.com", altNum: 5, imageComments: CommentDataSample),
+//    AltImageData(imageName: "avocado", imageUrl: "https://www.google.com", altNum: 20, imageComments: CommentDataSample),
+//    AltImageData(imageName: "banana", imageUrl: "https://www.naver.com", altNum: 21, imageComments: CommentDataSample),
+//    AltImageData(imageName: "blueberry", imageUrl: "https://www.naver.com", altNum: 3, imageComments: CommentDataSample),
+//    AltImageData(imageName: "cherry", imageUrl: "https://www.naver.com", altNum: 7, imageComments: CommentDataSample),
+//    AltImageData(imageName: "lemon", imageUrl: "https://www.naver.com", altNum: 3, imageComments: CommentDataSample),
+//    AltImageData(imageName: "lime", imageUrl: "https://www.naver.com", altNum: 7, imageComments:CommentDataSample),
+//    AltImageData(imageName: "musinsa", imageUrl: "https://www.naver.com", altNum: 8, imageComments: CommentDataSample)
 //
 //]

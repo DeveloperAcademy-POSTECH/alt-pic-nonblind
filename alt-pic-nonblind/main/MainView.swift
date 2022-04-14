@@ -56,6 +56,7 @@ private extension MainView {
 
 struct ImageView: View {
     @Binding var altImageCommentElement: AltImageData
+    var altimage : AltImageData
     
     let frameWidth: CGFloat
     let frameHeight: CGFloat
@@ -65,7 +66,7 @@ struct ImageView: View {
         NavigationLink(destination: CommentView(altImageCommentElement: $altImageCommentElement)){
             ZStack {
                 Rectangle().fill(Color(uiColor: UIColor.systemGray6))
-                Image(altImageCommentElement.imageName)
+                Image(altimage.imageName)
                     .resizable()
                     .scaledToFit()
             }

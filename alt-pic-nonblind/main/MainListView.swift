@@ -40,7 +40,7 @@ struct AltRow: View {
                     Image(systemName: "bubble.left")
                     Text("\(altImageCommentElement.altNum)")
                 }
-                ImageView(altImageCommentElement: $altImageCommentElement, frameWidth: 100, frameHeight: 100, cornerSize: 0)
+                ImageView(altImageCommentElement: $altImageCommentElement, altimage: altImageCommentElement, frameWidth: 100, frameHeight: 100, cornerSize: 0)
             }
             HStack {
                 RawImageView(altImageCommentElement: $altImageCommentElement)
